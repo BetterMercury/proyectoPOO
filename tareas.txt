@@ -1,0 +1,11 @@
+
+
+
+1.-Cambiar la clase asignatura para que sea lo que debe ser en este proyecto.   Ricardo
+ Crear el mapa y asociarlo con las demás clases
+
+2.-Crear la clase grupo   Dante 
+
+3.-Crear las clases de los métodos del main a sus clases.   Marco
+
+
