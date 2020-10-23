@@ -2,6 +2,8 @@
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map; 
+import java.util.TreeMap;
 
 public class Administracion {
     static Scanner sc = new Scanner(System.in);
@@ -9,6 +11,8 @@ public class Administracion {
     static List<Alumno> alumnosList = new ArrayList<>();
     static List<Profesor> profList = new ArrayList<>();
     static List<Asignatura> asigList = new ArrayList<>();
+    //static map<int,Asignatura> asigList = new TreeMap<>(); //Nuevo 
+    //staitc List<Grupo> = new TreeMap<>(); //Esto es lo que solian ser las asignaturas
     
     public static void main (String[] args){
         int op;
