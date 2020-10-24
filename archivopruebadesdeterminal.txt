@@ -1,0 +1,2 @@
+Este es un hola mundo usando git desde la terminal en la branch de prueba
+
