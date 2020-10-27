@@ -9,7 +9,7 @@ public class Alumno{
     int edad;
     long numeroCuenta;
     Direccion direccion;
-    List<Asignatura> asignaturas = new ArrayList<>();
+    List<Grupo> grupos = new ArrayList<>();
     
     public Alumno(String nombre, String apellidoP, String apellidoM, int edad, long numeroCuenta,
         Direccion direccion){
@@ -22,11 +22,11 @@ public class Alumno{
         this.direccion = direccion;
         numeroAlumnos++;
     }
-    public void addAsig(Asignatura materia){
-        asignaturas.add(materia);
+    public void addGrup(Grupo materia){
+        grupos.add(materia);
     }
-    public void removeAsig(Asignatura materia){
-        this.asignaturas.remove(materia);
+    public void removeGrup(Grupo materia){
+        this.grupos.remove(materia);
     }
     public int buscar (){
         for(int i = 0; i < Administracion.alumnosList.size(); i++){
@@ -39,8 +39,8 @@ public class Alumno{
     }
     public void eliminar(){
         Administracion.alumnosList.remove(this);
-        for(int i=0; i<this.asignaturas.size();i++){
-            Asignatura p = this.asignaturas.get(i);
+        for(int i=0; i<this.grupos.size();i++){
+            Grupo p = this.grupos.get(i);
             p.removeAlumno(this);
         }
     }
@@ -54,8 +54,8 @@ public class Alumno{
         this.numeroCuenta,this.edad);
         this.direccion.print(); //imprime la direccion
         System.out.println("Asignaturas inscritas:");
-        for(int i=0; i<this.asignaturas.size();i++){
-            Asignatura p = this.asignaturas.get(i);
+        for(int i=0; i<this.grupos.size();i++){
+            Grupo p = this.grupos.get(i);
             p.print();
         }
 

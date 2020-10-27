@@ -19,17 +19,17 @@ public class Imprimir{
         System.out.println(" ");    //agregue un espaciado
     }
 
-    static void printAsig(List<Asignatura> listaDeAsignaturas){    //agrego el parametro
+    static void printGrup(List<Grupo> listaDeAsignaturas){    //agrego el parametro
         for(int i = 0; i < listaDeAsignaturas.size(); i++){
-            Asignatura p = listaDeAsignaturas.get(i);
+            Grupo p = listaDeAsignaturas.get(i);
             System.out.print((i+1)+".- ");
             p.print();
         }
 
     }
-    static void printAsigT(List<Asignatura> listaDeAsignaturas){   //agrego parametro
+    static void printAsigT(List<Grupo> listaDeAsignaturas){   //agrego parametro
         for(int i = 0; i < listaDeAsignaturas.size(); i++){
-            Asignatura p = listaDeAsignaturas.get(i);
+            Grupo p = listaDeAsignaturas.get(i);
             System.out.print((i+1)+".- ");
             p.printT();
         }

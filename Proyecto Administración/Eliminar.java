@@ -34,16 +34,16 @@ public class Eliminar{
     }
 
 
-    static void eliminarAsig(List<Asignatura> listaDeAsignaturas){ //agrego el parametro
-        if(listaDeAsignaturas.isEmpty()){
+    static void eliminarGrup(List<Grupo> listaDeGrupos){ //agrego el parametro
+        if(listaDeGrupos.isEmpty()){
             System.out.println("No hay asignaturas");
         }else{
-            Asignatura eliminar;
+            Grupo eliminar;
             int indice;
-            Imprimir.printAsig(listaDeAsignaturas);   //agrego el parametro
+            Imprimir.printGrup(listaDeGrupos);   //agrego el parametro
             System.out.println("Ingresa el n\u00famero de la asignatura a eliminar");
             indice = sc.nextInt();
-            eliminar = listaDeAsignaturas.get(indice-1);
+            eliminar = listaDeGrupos.get(indice-1);
             eliminar.eliminar();
         }
     }
