@@ -15,8 +15,9 @@ public class Imprimir{
             Alumno p = listaDeAlumnos.get(i);
             System.out.print((i+1)+".- ");
             p.printT();
+            System.out.println(" ");    //agregue un espaciado
         }
-        System.out.println(" ");    //agregue un espaciado
+        
     }
 
     static void printGrup(Hashtable<String,Grupo> mapDeGrupos){   //agrego parametro
