@@ -6,7 +6,7 @@ public class Profesor {
     int edad;
     long numeroCuenta;
     Direccion direccion;
-    Asignatura asignatura;
+    Grupo asignatura;
 
     
     public Profesor(String nombre, String apellidoP, String apellidoM, int edad, long numeroCuenta,
@@ -21,7 +21,7 @@ public class Profesor {
         numeroProf++;
     }
 
-    public void addAsig(Asignatura asig){
+    public void addAsig(Grupo asig){
         this.asignatura = asig;
     }
 

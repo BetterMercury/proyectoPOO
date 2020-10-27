@@ -9,7 +9,7 @@ public class Administracion {
 
     static List<Alumno> alumnosList = new ArrayList<>();
     static List<Profesor> profList = new ArrayList<>();
-    static List<Asignatura> asigList = new ArrayList<>();
+    static List<Grupo> grupList = new ArrayList<>();
     //static map<int,Asignatura> asigList = new TreeMap<>(); //Nuevo 
     //staitc List<Grupo> = new TreeMap<>(); //Esto es lo que solian ser las asignaturas
     
@@ -29,13 +29,13 @@ public class Administracion {
             op = sc.nextInt();
             switch(op){
                 case 1:
-                    SubMenus.admiAlumnos(alumnosList, asigList);  //le coloco la clase antes del metodo, y le paso la lista de alumnos y de asignaturas
+                    SubMenus.admiAlumnos(alumnosList, grupList);  //le coloco la clase antes del metodo, y le paso la lista de alumnos y de asignaturas
                     break;
                 case 2:
-                    SubMenus.admiProf(profList, asigList); //le coloco la clase antes del metodo, y le paso la lista de profesores y de asignaturas 
+                    SubMenus.admiProf(profList, grupList); //le coloco la clase antes del metodo, y le paso la lista de profesores y de asignaturas 
                     break;
                 case 3:
-                    SubMenus.admiAsig(asigList, profList); //le coloco la clase antes del metodo, y le paso la lista de asignaturas y de profesores
+                    SubMenus.admiAsig(grupList, profList); //le coloco la clase antes del metodo, y le paso la lista de asignaturas y de profesores
                     break;
                 case 4:
                     b=false;    //se cambia la bandera para salir del ciclo

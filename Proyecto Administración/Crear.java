@@ -85,7 +85,7 @@ public class Crear{
         }
     }
 
-    static void crearAsig(List<Asignatura> listaDeAsignaturas, List<Profesor> listaDeProfesores){	//dos parametros
+    static void crearGrup(List<Grupo> listaDeAsignaturas, List<Profesor> listaDeProfesores){	//dos parametros
         if(listaDeProfesores.isEmpty()){
             System.out.println("Antes de crear una asignatura debes crear un profesor");
         }else{        
@@ -105,7 +105,7 @@ public class Crear{
             num = sc.nextInt();
             System.out.println("");	//agrego espaciado
             temp = listaDeProfesores.get(num-1);
-            Asignatura nuevaAsig = new Asignatura(nombre,temp,clave);
+            Grupo nuevaAsig = new Grupo(nombre,temp,clave);
             if(nuevaAsig.buscar()!=-1)
             {
                 System.out.println("Esta asignatura ya existe");
