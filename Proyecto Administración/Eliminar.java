@@ -36,12 +36,12 @@ public class Eliminar{
 
     static void eliminarGrup(List<Grupo> listaDeGrupos){ //agrego el parametro
         if(listaDeGrupos.isEmpty()){
-            System.out.println("No hay asignaturas");
+            System.out.println("No hay grupos");
         }else{
             Grupo eliminar;
             int indice;
             Imprimir.printGrup(listaDeGrupos);   //agrego el parametro
-            System.out.println("Ingresa el n\u00famero de la asignatura a eliminar");
+            System.out.println("Ingresa el n\u00famero del grupo a eliminar");
             indice = sc.nextInt();
             eliminar = listaDeGrupos.get(indice-1);
             eliminar.eliminar();

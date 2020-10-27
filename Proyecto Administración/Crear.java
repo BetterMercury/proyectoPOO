@@ -85,9 +85,9 @@ public class Crear{
         }
     }
 
-    static void crearGrup(List<Grupo> listaDeAsignaturas, List<Profesor> listaDeProfesores){	//dos parametros
+    static void crearGrup(List<Grupo> listaDeGrupos, List<Profesor> listaDeProfesores){	//dos parametros
         if(listaDeProfesores.isEmpty()){
-            System.out.println("Antes de crear una asignatura debes crear un profesor");
+            System.out.println("Antes de crear un grupo debes crear un profesor");
         }else{        
             int num;
             String nombre;
@@ -95,23 +95,23 @@ public class Crear{
             Profesor temp;
             System.out.print("Ingresa el nombre: ");
             nombre = sc.nextLine();
-            System.out.print("Ingresa la clave de la asignatura: ");
+            System.out.print("Ingresa la clave del grupo //Los grupos llevarán número, no clave hay que cambiar esto: ");
             clave = sc.nextLong();
             sc.nextLine();
             System.out.println("");	//agrego espaciado
             Imprimir.printProf(listaDeProfesores);   //agrego el parametro
             System.out.println("");	//agrego espaciado
-            System.out.print("Ingresa el n\u00famero del profesor que se encargar\u00e1 de esta materia: ");
+            System.out.print("Ingresa el n\u00famero del profesor que se encargar\u00e1 de este grupo: ");
             num = sc.nextInt();
             System.out.println("");	//agrego espaciado
             temp = listaDeProfesores.get(num-1);
-            Grupo nuevaAsig = new Grupo(nombre,temp,clave);
-            if(nuevaAsig.buscar()!=-1)
+            Grupo nuevoGrupo = new Grupo(nombre,temp,clave);
+            if(nuevoGrupo.buscar()!=-1)
             {
-                System.out.println("Esta asignatura ya existe");
+                System.out.println("Este grupo ya existe");
             }else{
-                listaDeAsignaturas.add(nuevaAsig);
-                temp.addAsig(nuevaAsig);
+                listaDeGrupos.add(nuevoGrupo);
+                temp.addGrup(nuevoGrupo);
             }
         }
     }
