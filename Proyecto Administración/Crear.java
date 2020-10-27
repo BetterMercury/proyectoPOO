@@ -99,9 +99,8 @@ public class Crear{
             Asignatura asig;
             System.out.print("Ingresa el nombre: ");
             nombre = sc.nextLine();
-            System.out.print("Ingresa la clave del grupo //Los grupos llevarán número, no clave hay que cambiar esto: ");
+            System.out.print("Ingresa la clave del grupo: ");
             clave = sc.nextLine();
-            sc.nextLine();
             System.out.println("");	//agrego espaciado
             //Pide profesor
             Imprimir.printProf(listaDeProfesores);   //agrego el parametro
@@ -113,7 +112,7 @@ public class Crear{
             //Pide asignatura
             Imprimir.printAsig(listaDeAsignaturas);
             System.out.println("");
-            System.out.print("Ingresa el n\u00famero de la asignatura a inscribir: ");
+            System.out.print("Ingresa el n\u00famero de la asignatura que se impartirá en este grúpo: ");
             num = sc.nextInt();
             asig = listaDeAsignaturas.get(num-1);
 
@@ -128,5 +127,26 @@ public class Crear{
         }
     }
 
+    static void crearAsignatura(List<Asignatura> listAsig){	//agrego el parametro
+        String nombre;
+        int creditos;
+        String clave;
+        System.out.print("Ingresa el nombre: ");
+        nombre = sc.nextLine();
+       
+        System.out.print("Ingresa los creditos de la asignatura: ");
+        creditos = sc.nextInt();
 
+        sc.nextLine();
+        System.out.print("Ingresa la clave de la asignatura: ");
+        clave = sc.nextLine();
+        Asignatura nuevaAsignatura = new Asignatura(nombre, clave, creditos);
+        if(nuevaAsignatura.buscar()!=-1)
+        {	
+        	System.out.println(" ");
+            System.out.println("Esta asignatura ya existe (criterio de clave de asignatura)");	//solo especifico que ya existe por ser el mismo numero de cuenta
+        }else{
+            listAsig.add(nuevaAsignatura);
+        }
+    }
 }

@@ -38,6 +38,7 @@ public class Eliminar{
         if(mapDeGrups.isEmpty()){
             System.out.println("No hay grupos");
         }else{
+            sc.nextLine();
             Grupo eliminar;
             String clave;
             Imprimir.printGrup(mapDeGrups);   //agrego el parametro
@@ -47,6 +48,23 @@ public class Eliminar{
             eliminar.eliminar();
         }
     }
+
+    static void eliminarAsignatura(List<Asignatura> listAsig){ //agrego parametro list
+        if(listAsig.isEmpty()){
+            System.out.println("No hay asignaturas");
+        }else{
+            Asignatura eliminar;
+            int indice;
+            Imprimir.printAsig(listAsig);   //agrego el parametro
+            System.out.println(" ");    //espaciado
+            System.out.print("Ingresa el n\u00famero de la asignatura a eliminar: ");  //modifico como se ve
+            indice = sc.nextInt();
+            eliminar = listAsig.get(indice-1);    //eliminar es una asignatura
+            eliminar.eliminar();
+        }
+    }
+
+
 
 
 }

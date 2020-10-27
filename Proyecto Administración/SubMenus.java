@@ -153,6 +153,44 @@ public class SubMenus{
         }while(ban);
     }
 
+    static void admiAsig(Hashtable<String,Grupo> mapGrus,List<Asignatura> listAsig){
+        int op;
+        boolean ban = true;
+        do{
+        	System.out.println();
+        	System.out.println("Submen\u00fa de asignaturas");
+            System.out.println("1) Crear Asignatura: ");
+            System.out.println("2) Ver asignaturas existentes: ");
+            System.out.println("3) Eliminar Asignatura: ");
+            System.out.println("4) Salir : ");
+            System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
+            op = sc.nextInt();
+            System.out.println(" ");    //agregue un espaciado
+            switch (op) {
+                case 1:
+                    Crear.crearAsignatura(listAsig);   
+                    break;
+                case 2:
+                	if(listAsig.isEmpty()){
+                         System.out.println("No asignaturas");  //agrego un if para que se imprima esto si no hay alumnos
+                        break;
+                    }else{
+                        Imprimir.printAsig(listAsig);  //agrego parametro
+                        break;
+                    }
+                case 3:
+                    Eliminar.eliminarAsignatura(listAsig); //agrego el parametro
+                    break;
+                case 4:
+                    ban = false;
+                    break;
+            
+                default:
+                    System.out.println("Opci\u00f3n no v\u00e1lida");	//correccion del acento
+                    break;
+            }
+        }while(ban);
+    }
 
 
 }
