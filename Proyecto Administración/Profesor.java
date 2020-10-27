@@ -6,7 +6,7 @@ public class Profesor {
     int edad;
     long numeroCuenta;
     Direccion direccion;
-    Grupo asignatura;
+    Grupo grupo;
 
     
     public Profesor(String nombre, String apellidoP, String apellidoM, int edad, long numeroCuenta,
@@ -21,12 +21,12 @@ public class Profesor {
         numeroProf++;
     }
 
-    public void addAsig(Grupo asig){
-        this.asignatura = asig;
+    public void addGrup(Grupo asig){
+        this.grupo = asig;
     }
 
-    public void removeAsig(){
-        this.asignatura=null;
+    public void removeGrup(){
+        this.grupo=null;
     }
 
     public int buscar (){
@@ -47,14 +47,14 @@ public class Profesor {
         System.out.printf("Nombre: %s  %s. Numero de cuenta: %d. Edad: %d %n", this.nombre,this.apellidoP,
             this.numeroCuenta,this.edad);
         this.direccion.print();
-        if(this.asignatura != null){
-            this.asignatura.print();
+        if(this.grupo != null){
+            this.grupo.print();
         }
     }
 
     public void eliminar(){
-        if(asignatura != null){
-            this.asignatura.removeProf();
+        if(grupo != null){
+            this.grupo.removeProf();
         }
         Administracion.profList.remove(this);
     }

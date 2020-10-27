@@ -23,7 +23,7 @@ public class Administracion {
             System.out.println("Menu principal");   //solo puse menu principal
             System.out.println("1) Administrar alumnos: ");
             System.out.println("2) Administrar profesores: ");
-            System.out.println("3) Administrar asignaturas:  ");
+            System.out.println("3) Administrar grupos:  ");
             System.out.println("4) Salir: ");
             System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
             op = sc.nextInt();
@@ -35,7 +35,7 @@ public class Administracion {
                     SubMenus.admiProf(profList, grupList); //le coloco la clase antes del metodo, y le paso la lista de profesores y de asignaturas 
                     break;
                 case 3:
-                    SubMenus.admiAsig(grupList, profList); //le coloco la clase antes del metodo, y le paso la lista de asignaturas y de profesores
+                    SubMenus.admiGrup(grupList, profList); //le coloco la clase antes del metodo, y le paso la lista de asignaturas y de profesores
                     break;
                 case 4:
                     b=false;    //se cambia la bandera para salir del ciclo

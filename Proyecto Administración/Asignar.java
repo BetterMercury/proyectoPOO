@@ -34,7 +34,7 @@ public class Asignar{
             System.out.println(" ");
             p = listaDeAsignaturas.get(indice);
             p.addProf(prof);
-            prof.addAsig(p);
+            prof.addGrup(p);
         }
     }
 

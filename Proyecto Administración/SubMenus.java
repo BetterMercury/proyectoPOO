@@ -59,33 +59,33 @@ public class SubMenus{
         }while(ban);
     }
     
-    static void admiAsig(List<Grupo> listaDeAsignaturas, List<Profesor> listaDeProfesores){	//agrego los parametros lista de asignaturasde y lista de profesores 
+    static void admiGrup(List<Grupo> listaDeGrupos, List<Profesor> listaDeProfesores){	//agrego los parametros lista de asignaturasde y lista de profesores 
         int op;
         boolean ban = true;
         do{
         	System.out.println();
-        	System.out.println("Submen\u00fa de asignaturas");
-            System.out.println("1) Crear Asignatura: ");
-            System.out.println("2) Ver asignaturas existentes: ");
-            System.out.println("3) Eliminar asignatura: ");
+        	System.out.println("Submen\u00fa de Grupos");
+            System.out.println("1) Crear grupo: ");
+            System.out.println("2) Ver grupos existentes: ");
+            System.out.println("3) Eliminar grupo: ");
             System.out.println("4) Salir : ");
             System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
             op = sc.nextInt();
             System.out.println(" ");    //agregue un espaciado
             switch (op) {
                 case 1:
-                    Crear.crearGrup(listaDeAsignaturas, listaDeProfesores);    //agrego los dos parametros
+                    Crear.crearGrup(listaDeGrupos, listaDeProfesores);    //agrego los dos parametros
                     break;
                 case 2:
-                	if(listaDeAsignaturas.isEmpty()){
-                         System.out.println("No hay asignaturas");  //agrego un if para que se imprima esto si no hay alumnos
+                	if(listaDeGrupos.isEmpty()){
+                         System.out.println("No hay grupos");  //agrego un if para que se imprima esto si no hay alumnos
                         break;
                     }else{
-                        Imprimir.printAsigT(listaDeAsignaturas);  //se imprimiran las asignaturas. agrego parametros
+                        Imprimir.printAsigT(listaDeGrupos);  //se imprimiran las asignaturas. agrego parametros
                         break;
                     }
                 case 3:
-                	Eliminar.eliminarGrup(listaDeAsignaturas); //agrego el parametro
+                	Eliminar.eliminarGrup(listaDeGrupos); //agrego el parametro
                     break;
                 case 4:
                     ban = false;
