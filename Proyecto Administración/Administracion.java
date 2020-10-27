@@ -1,17 +1,15 @@
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Map; 
-import java.util.TreeMap;
+import java.util.Hashtable;
 
 public class Administracion {
     static Scanner sc = new Scanner(System.in);
 
     static List<Alumno> alumnosList = new ArrayList<>();
     static List<Profesor> profList = new ArrayList<>();
-    static List<Grupo> grupList = new ArrayList<>();
-    //static map<int,Asignatura> asigList = new TreeMap<>(); //Nuevo 
-    //staitc List<Grupo> = new TreeMap<>(); //Esto es lo que solian ser las asignaturas
+    static Hashtable<String,Grupo> grupMap = new Hashtable<>();
+    static List<Asignatura> asigList = new ArrayList<>(); 
     
     public static void main (String[] args){
         int op; //opcion para el menu
@@ -29,13 +27,13 @@ public class Administracion {
             op = sc.nextInt();
             switch(op){
                 case 1:
-                    SubMenus.admiAlumnos(alumnosList, grupList);  //le coloco la clase antes del metodo, y le paso la lista de alumnos y de asignaturas
+                    SubMenus.admiAlumnos(alumnosList,grupMap);  //le coloco la clase antes del metodo, y le paso la lista de alumnos y de asignaturas
                     break;
                 case 2:
-                    SubMenus.admiProf(profList, grupList); //le coloco la clase antes del metodo, y le paso la lista de profesores y de asignaturas 
+                    SubMenus.admiProf(profList, grupMap); //le coloco la clase antes del metodo, y le paso la lista de profesores y de asignaturas 
                     break;
                 case 3:
-                    SubMenus.admiGrup(grupList, profList); //le coloco la clase antes del metodo, y le paso la lista de asignaturas y de profesores
+                    SubMenus.admiGrup(grupMap, profList,asigList); //le coloco la clase antes del metodo, y le paso la lista de asignaturas y de profesores
                     break;
                 case 4:
                     b=false;    //se cambia la bandera para salir del ciclo

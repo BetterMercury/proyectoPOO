@@ -5,36 +5,36 @@ public class Asignar{
 	static Scanner sc = new Scanner(System.in);
 
 
-	 static void inscMateria(Alumno alumno, List<Grupo> listaDeAsignaturas){	//asignar materia a almuno, le agregue el parametro de la lista
-        if(listaDeAsignaturas.isEmpty()){
+	 static void inscMateria(Alumno alumno, Hashtable<String,Grupo> mapDeGrupos){	//asignar materia a almuno, le agregue el parametro de la lista
+        if(mapDeGrupos.isEmpty()){
             System.out.println("No hay asignaturas disponibles, crea una primero");
         }else{
             Grupo p; 
-            int indice;
-            Imprimir.printGrup(listaDeAsignaturas);   //agrego el parametro
+            String clave;
+            Imprimir.printGrup(mapDeGrupos);   //agrego el parametro
             System.out.println("");	//agrego espaciado
-            System.out.print("Ingresa el n\u00famero de la materia a inscribir: ");
-            indice = sc.nextInt();
-            p = listaDeAsignaturas.get(indice-1);
-            alumno.addGrup(p);
+            System.out.print("Ingresals la clave de la materia a inscribir: ");
+            clave = sc.nextLine();
+            p = mapDeGrupos.get(clave);
+            alumno.addGrup(clave);
             p.addAlumno(alumno);
         }
     }
 
-    static void asigMateria(Profesor prof, List<Grupo> listaDeAsignaturas){	//asignar materia a profesor, le agregue el parametro de la lista
-        if(listaDeAsignaturas.isEmpty()){
-            System.out.println("No hay asignaturas disponibles, crea una primero");
+    static void asigMateria(Profesor prof, Hashtable<String,Grupo> mapGrups){	//asignar materia a profesor, le agregue el parametro de la lista
+        if(mapGrups.isEmpty()){
+            System.out.println("No hay grupos disponibles, crea una primero");
         }else{
             Grupo p; 
-            int indice;
-            Imprimir.printGrup(listaDeAsignaturas);   //agrego el parametro
+            String clave;
+            Imprimir.printGrup(mapGrups);   //agrego el parametro
             System.out.println("");	//agrego espaciado
-            System.out.print("Ingresa el n\u00famero de la asignatura que impartir\u00e1 este profesor: ");
-            indice = sc.nextInt();
+            System.out.print("Ingresa la clave de la asignatura que impartir\u00e1 este profesor: ");
+            clave = sc.nextLine();
             System.out.println(" ");
-            p = listaDeAsignaturas.get(indice);
+            p = mapGrups.get(clave);
             p.addProf(prof);
-            prof.addGrup(p);
+            prof.addGrup(clave);
         }
     }
 

@@ -4,7 +4,7 @@ public class SubMenus{
 
 	static Scanner sc = new Scanner(System.in);
 
-	static void admiAlumnos(List<Alumno> listaDeAlumnos, List<Grupo> listaDeAsignaturas){		//agrego los parametros de lista de alumnos y lista de asignaturas
+	static void admiAlumnos(List<Alumno> listaDeAlumnos, Hashtable<String,Grupo> mapDeGrupos){		//agrego los parametros de lista de alumnos y lista de asignaturas
         int op;
         boolean ban = true;
         
@@ -34,7 +34,7 @@ public class SubMenus{
                         System.out.print("Ingresa el n\u00famero del alumno al que quieres agregar manterias: ");
                         num = sc.nextInt();
                         System.out.println();   //agrego espaciado
-                        Asignar.inscMateria(listaDeAlumnos.get(num-1), listaDeAsignaturas);    //manda al alumno junto con su indice // ya tiene parametro solo falta el asigList
+                        Asignar.inscMateria(listaDeAlumnos.get(num-1), mapDeGrupos);    //manda al alumno junto con su indice // ya tiene parametro solo falta el asigList
                         break;
                     }
                 case 3:
@@ -59,7 +59,8 @@ public class SubMenus{
         }while(ban);
     }
     
-    static void admiGrup(List<Grupo> listaDeGrupos, List<Profesor> listaDeProfesores){	//agrego los parametros lista de asignaturasde y lista de profesores 
+    static void admiGrup(Hashtable <String,Grupo> mapGrups, List<Profesor> listaDeProfesores,
+    List<Asignatura> listaDeAsignaturas){	//agrego los parametros lista de asignaturasde y lista de profesores 
         int op;
         boolean ban = true;
         do{
@@ -74,18 +75,18 @@ public class SubMenus{
             System.out.println(" ");    //agregue un espaciado
             switch (op) {
                 case 1:
-                    Crear.crearGrup(listaDeGrupos, listaDeProfesores);    //agrego los dos parametros
+                    Crear.crearGrup(mapGrups, listaDeProfesores,listaDeAsignaturas);    //agrego los dos parametros
                     break;
                 case 2:
-                	if(listaDeGrupos.isEmpty()){
+                	if(mapGrups.isEmpty()){
                          System.out.println("No hay grupos");  //agrego un if para que se imprima esto si no hay alumnos
                         break;
                     }else{
-                        Imprimir.printAsigT(listaDeGrupos);  //se imprimiran las asignaturas. agrego parametros
+                        Imprimir.printGrupT(mapGrups);  //se imprimiran las asignaturas. agrego parametros
                         break;
                     }
                 case 3:
-                	Eliminar.eliminarGrup(listaDeGrupos); //agrego el parametro
+                	Eliminar.eliminarGrup( mapGrups ); //agrego el parametro
                     break;
                 case 4:
                     ban = false;
@@ -98,7 +99,7 @@ public class SubMenus{
         }while(ban);
     }
 
-    static void admiProf(List<Profesor> listaDeProfesores, List<Grupo> listaDeAsignaturas){		//agrego los parametros lista de profesores y lista de asignaturas
+    static void admiProf(List<Profesor> listaDeProfesores, Hashtable<String,Grupo> mapGrups){		//agrego los parametros lista de profesores y lista de asignaturas
         int op;
         boolean ban = true;
         do{
@@ -127,7 +128,7 @@ public class SubMenus{
                         System.out.print("Ingresa el n\u00famero del profesor al que quieres asignar una materia: ");
                         num = sc.nextInt();
                         System.out.println(" "); //espaciado
-                        Asignar.asigMateria(listaDeProfesores.get(num-1), listaDeAsignaturas);   //ya tiene el parametro, solo le coloco la clase al principio Asignar.asigMateria() y el otro parametro asigList
+                        Asignar.asigMateria(listaDeProfesores.get(num-1), mapGrups);   //ya tiene el parametro, solo le coloco la clase al principio Asignar.asigMateria() y el otro parametro asigList
                         break;
                     }
                 case 3:

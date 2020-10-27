@@ -34,16 +34,16 @@ public class Eliminar{
     }
 
 
-    static void eliminarGrup(List<Grupo> listaDeGrupos){ //agrego el parametro
-        if(listaDeGrupos.isEmpty()){
+    static void eliminarGrup(Hashtable<String,Grupo> mapDeGrups){ //agrego el parametro
+        if(mapDeGrups.isEmpty()){
             System.out.println("No hay grupos");
         }else{
             Grupo eliminar;
-            int indice;
-            Imprimir.printGrup(listaDeGrupos);   //agrego el parametro
-            System.out.println("Ingresa el n\u00famero del grupo a eliminar");
-            indice = sc.nextInt();
-            eliminar = listaDeGrupos.get(indice-1);
+            String clave;
+            Imprimir.printGrup(mapDeGrups);   //agrego el parametro
+            System.out.println("Ingresa el la clave del grupo a eliminar");
+            clave = sc.nextLine();
+            eliminar = mapDeGrups.get(clave);
             eliminar.eliminar();
         }
     }

@@ -85,33 +85,45 @@ public class Crear{
         }
     }
 
-    static void crearGrup(List<Grupo> listaDeGrupos, List<Profesor> listaDeProfesores){	//dos parametros
+    static void crearGrup(Hashtable<String,Grupo> mapaDeGrupos, List<Profesor> listaDeProfesores,
+        List<Asignatura> listaDeAsignaturas){	//dos parametros
         if(listaDeProfesores.isEmpty()){
             System.out.println("Antes de crear un grupo debes crear un profesor");
+        }else if(listaDeAsignaturas.isEmpty()){
+            System.out.println("Antes de crear un grupo debes crear una asignatura");
         }else{        
             int num;
             String nombre;
-            long clave;
+            String clave;
             Profesor temp;
+            Asignatura asig;
             System.out.print("Ingresa el nombre: ");
             nombre = sc.nextLine();
             System.out.print("Ingresa la clave del grupo //Los grupos llevarán número, no clave hay que cambiar esto: ");
-            clave = sc.nextLong();
+            clave = sc.nextLine();
             sc.nextLine();
             System.out.println("");	//agrego espaciado
+            //Pide profesor
             Imprimir.printProf(listaDeProfesores);   //agrego el parametro
             System.out.println("");	//agrego espaciado
             System.out.print("Ingresa el n\u00famero del profesor que se encargar\u00e1 de este grupo: ");
             num = sc.nextInt();
             System.out.println("");	//agrego espaciado
             temp = listaDeProfesores.get(num-1);
-            Grupo nuevoGrupo = new Grupo(nombre,temp,clave);
-            if(nuevoGrupo.buscar()!=-1)
+            //Pide asignatura
+            Imprimir.printAsig(listaDeAsignaturas);
+            System.out.println("");
+            System.out.print("Ingresa el n\u00famero de la asignatura a inscribir: ");
+            num = sc.nextInt();
+            asig = listaDeAsignaturas.get(num-1);
+
+            if(mapaDeGrupos.contains(clave))
             {
                 System.out.println("Este grupo ya existe");
             }else{
-                listaDeGrupos.add(nuevoGrupo);
-                temp.addGrup(nuevoGrupo);
+                Grupo nuevoGrupo = new Grupo(nombre,temp,clave,asig);
+                mapaDeGrupos.put(clave,nuevoGrupo);
+                temp.addGrup(clave);
             }
         }
     }

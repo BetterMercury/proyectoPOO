@@ -19,20 +19,32 @@ public class Imprimir{
         System.out.println(" ");    //agregue un espaciado
     }
 
-    static void printGrup(List<Grupo> listaDeAsignaturas){    //agrego el parametro
-        for(int i = 0; i < listaDeAsignaturas.size(); i++){
-            Grupo p = listaDeAsignaturas.get(i);
-            System.out.print((i+1)+".- ");
-            p.print();
+    static void printGrup(Hashtable<String,Grupo> mapDeGrupos){   //agrego parametro
+        String clave;
+        Grupo valor;
+        Enumeration <String> claves = mapDeGrupos.keys(); 
+        
+        while (claves.hasMoreElements()){
+            clave = claves.nextElement();
+            valor = mapDeGrupos.get(clave);
+            System.out.print((clave)+".- ");
+            valor.print();
+        }
+        
+        System.out.println(" ");    //agregue un espaciado
+    }
+    static void printGrupT(Hashtable<String,Grupo> mapDeGrupos){   //agrego parametro
+        String clave;
+        Grupo valor;
+        Enumeration <String> claves = mapDeGrupos.keys(); 
+        
+        while (claves.hasMoreElements()){
+            clave = claves.nextElement();
+            valor = mapDeGrupos.get(clave);
+            System.out.print((clave)+".- ");
+            valor.printT();
         }
 
-    }
-    static void printAsigT(List<Grupo> listaDeAsignaturas){   //agrego parametro
-        for(int i = 0; i < listaDeAsignaturas.size(); i++){
-            Grupo p = listaDeAsignaturas.get(i);
-            System.out.print((i+1)+".- ");
-            p.printT();
-        }
         System.out.println(" ");    //agregue un espaciado
     }
 
@@ -51,6 +63,20 @@ public class Imprimir{
             p.printT();
         }
         System.out.println(" ");    //agregue un espaciado
+    }
+    static void printAsig(List<Asignatura> listaDeAsignaturas){
+        for(int i = 0; i < listaDeAsignaturas.size(); i++){
+            Asignatura p = listaDeAsignaturas.get(i);
+            System.out.print((i+1)+".- ");
+            p.print();
+        }
+    }
+    static void printAsigT(List<Asignatura> listaDeAsignaturas){
+        for(int i = 0; i < listaDeAsignaturas.size(); i++){
+            Asignatura p = listaDeAsignaturas.get(i);
+            System.out.print((i+1)+".- ");
+            p.printT();
+        }
     }
 
 

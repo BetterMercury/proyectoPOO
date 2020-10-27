@@ -1,5 +1,4 @@
-import java.util.List;
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Alumno{
     static int numeroAlumnos = 0;
@@ -9,7 +8,7 @@ public class Alumno{
     int edad;
     long numeroCuenta;
     Direccion direccion;
-    List<Grupo> grupos = new ArrayList<>();
+    HashSet<String> grupos = new HashSet<>();
     
     public Alumno(String nombre, String apellidoP, String apellidoM, int edad, long numeroCuenta,
         Direccion direccion){
@@ -22,10 +21,10 @@ public class Alumno{
         this.direccion = direccion;
         numeroAlumnos++;
     }
-    public void addGrup(Grupo materia){
+    public void addGrup(String materia){
         grupos.add(materia);
     }
-    public void removeGrup(Grupo materia){
+    public void removeGrup(String materia){
         this.grupos.remove(materia);
     }
     public int buscar (){
@@ -39,9 +38,10 @@ public class Alumno{
     }
     public void eliminar(){
         Administracion.alumnosList.remove(this);
-        for(int i=0; i<this.grupos.size();i++){
-            Grupo p = this.grupos.get(i);
-            p.removeAlumno(this);
+        Grupo temp;
+        for(String clave:this.grupos){
+            temp = Administracion.grupMap.get(clave);
+            temp.removeAlumno(this);
         }
     }
 
@@ -53,10 +53,11 @@ public class Alumno{
         System.out.printf("Nombre: %s %s.   Numero de cuenta: %d. Edad: %d %n", this.nombre,this.apellidoP,
         this.numeroCuenta,this.edad);
         this.direccion.print(); //imprime la direccion
-        System.out.println("Asignaturas inscritas:");
-        for(int i=0; i<this.grupos.size();i++){
-            Grupo p = this.grupos.get(i);
-            p.print();
+        System.out.println("Clave de asignaturas inscritas:");
+        Grupo temp;
+        for(String iterador:this.grupos){
+            temp = Administracion.grupMap.get(iterador);
+            temp.print();
         }
 
     }
