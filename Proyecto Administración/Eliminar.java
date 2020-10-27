@@ -54,7 +54,7 @@ public class Eliminar{
             System.out.println("No hay asignaturas");
         }else{
             Asignatura eliminar;
-            int indice;
+            int indice; 
             Imprimir.printAsig(listAsig);   //agrego el parametro
             System.out.println(" ");    //espaciado
             System.out.print("Ingresa el n\u00famero de la asignatura a eliminar: ");  //modifico como se ve

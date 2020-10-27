@@ -172,7 +172,7 @@ public class SubMenus{
                     break;
                 case 2:
                 	if(listAsig.isEmpty()){
-                         System.out.println("No asignaturas");  //agrego un if para que se imprima esto si no hay alumnos
+                         System.out.println("No hay asignaturas");  //agrego un if para que se imprima esto si no hay asignaturas
                         break;
                     }else{
                         Imprimir.printAsig(listAsig);  //agrego parametro
