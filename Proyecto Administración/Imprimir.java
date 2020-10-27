@@ -79,6 +79,4 @@ public class Imprimir{
             p.printT();
         }
     }
-
-
 }
