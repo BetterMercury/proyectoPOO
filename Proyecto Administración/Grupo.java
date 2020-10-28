@@ -5,12 +5,14 @@ public class Grupo {
     String nombre;
     List<Alumno> inscritos = new ArrayList<>();
     Profesor encargado;
-    long clave;
+    String clave;
+    Asignatura asignatura;
    
-    public Grupo(String nombre,Profesor prof,long clave ){
+    public Grupo(String nombre,Profesor prof,String clave,Asignatura asignatura ){
         this.nombre = nombre;  
         this.encargado = prof;
         this.clave = clave;
+        this.asignatura = asignatura;
     }
 
    
@@ -29,6 +31,12 @@ public class Grupo {
 
     public void addProf(Profesor prof){
         this.encargado = prof;
+    }
+    public void addAsig(Asignatura asig){
+        this.asignatura = asig;
+    }
+    public void removeAsig(){
+        this.asignatura = null;
     }
    
     public void printAll(){
@@ -61,21 +69,12 @@ public class Grupo {
         }
     }
 
-    int buscar (){
-        for(int i = 0; i < Administracion.grupList.size(); i++){
-            Grupo p = Administracion.grupList.get(i);
-            if (p.clave == this.clave){
-                return i;
-            }
-        }
-        return -1;
-    }
 
     public void eliminar(){
-        Administracion.grupList.remove(this);
+        Administracion.grupMap.remove(this.clave);
         for(int i=0; i<this.inscritos.size();i++){
             Alumno p = this.inscritos.get(i);
-            p.removeGrup(this);
+            p.removeGrup(this.clave);
         }
         
     }

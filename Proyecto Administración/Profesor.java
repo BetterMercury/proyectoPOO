@@ -6,7 +6,7 @@ public class Profesor {
     int edad;
     long numeroCuenta;
     Direccion direccion;
-    Grupo grupo;
+    String grupo;
 
     
     public Profesor(String nombre, String apellidoP, String apellidoM, int edad, long numeroCuenta,
@@ -21,7 +21,7 @@ public class Profesor {
         numeroProf++;
     }
 
-    public void addGrup(Grupo asig){
+    public void addGrup(String asig){
         this.grupo = asig;
     }
 
@@ -47,14 +47,19 @@ public class Profesor {
         System.out.printf("Nombre: %s  %s. Numero de cuenta: %d. Edad: %d %n", this.nombre,this.apellidoP,
             this.numeroCuenta,this.edad);
         this.direccion.print();
+        
         if(this.grupo != null){
-            this.grupo.print();
+            Grupo temp;
+            temp = Administracion.grupMap.get(this.grupo);
+            temp.print();
         }
     }
 
     public void eliminar(){
         if(grupo != null){
-            this.grupo.removeProf();
+            Grupo temp;
+            temp = Administracion.grupMap.get(this.grupo);
+            temp.removeProf();
         }
         Administracion.profList.remove(this);
     }
