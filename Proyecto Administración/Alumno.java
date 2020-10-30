@@ -22,7 +22,11 @@ public class Alumno{
         numeroAlumnos++;
     }
     public void addGrup(String materia){
-        grupos.add(materia);
+        if(grupos.size() < 3){  //aquí el alumno solo podra tener tres grupos con ayuda del metodo size
+            grupos.add(materia);
+        }else{
+            System.out.println("Un alumno solo puede estar en tres grupos o menos");    //mensaje en el caso de que se ingresen mas grupos
+        }
     }
     public void removeGrup(String materia){
         this.grupos.remove(materia);

@@ -13,7 +13,7 @@ public class Asignar{
             String clave;
             Imprimir.printGrup(mapDeGrupos);   //agrego el parametro
             System.out.println("");	//agrego espaciado
-            System.out.print("Ingresals la clave de la materia a inscribir: ");
+            System.out.print("Ingresa la clave de la materia a inscribir: ");
             clave = sc.nextLine();
             p = mapDeGrupos.get(clave);
             alumno.addGrup(clave);
