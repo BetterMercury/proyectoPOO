@@ -76,6 +76,7 @@ public class Crear{
         estado = sc.nextLine();
         direccion = new Direccion(calle,numero,colonia,municipio,estado);
         Alumno nuevoAlumno = new Alumno(nombre, apellidoP, apellidoM, edad, numeroCuenta, direccion);
+        sc.nextLine();
         if(nuevoAlumno.buscar()!=-1)
         {	
         	System.out.println(" ");
@@ -92,13 +93,10 @@ public class Crear{
         }else if(listaDeAsignaturas.isEmpty()){
             System.out.println("Antes de crear un grupo debes crear una asignatura");
         }else{        
-            int num;
-            String nombre;
+            int num;    //se elimina el parametro 'nombre'
             String clave;
             Profesor temp;
             Asignatura asig;
-            System.out.print("Ingresa el nombre: ");
-            nombre = sc.nextLine();
             System.out.print("Ingresa la clave del grupo: ");
             clave = sc.nextLine();
             System.out.println("");	//agrego espaciado
@@ -115,12 +113,12 @@ public class Crear{
             System.out.print("Ingresa el n\u00famero de la asignatura que se impartirá en este grúpo: ");
             num = sc.nextInt();
             asig = listaDeAsignaturas.get(num-1);
-
+            sc.nextLine();
             if(mapaDeGrupos.contains(clave))
             {
                 System.out.println("Este grupo ya existe");
             }else{
-                Grupo nuevoGrupo = new Grupo(nombre,temp,clave,asig);
+                Grupo nuevoGrupo = new Grupo(temp,clave,asig);  //eliminacion del parametro 'nombre'
                 mapaDeGrupos.put(clave,nuevoGrupo);
                 temp.addGrup(clave);
             }
@@ -141,6 +139,7 @@ public class Crear{
         System.out.print("Ingresa la clave de la asignatura: ");
         clave = sc.nextLine();
         Asignatura nuevaAsignatura = new Asignatura(nombre, clave, creditos);
+        sc.nextLine();
         if(nuevaAsignatura.buscar()!=-1)
         {	
         	System.out.println(" ");

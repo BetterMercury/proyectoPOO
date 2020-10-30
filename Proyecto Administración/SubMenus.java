@@ -34,7 +34,13 @@ public class SubMenus{
                         System.out.print("Ingresa el n\u00famero del alumno al que quieres agregar manterias: ");
                         num = sc.nextInt();
                         System.out.println();   //agrego espaciado
-                        Asignar.inscMateria(listaDeAlumnos.get(num-1), mapDeGrupos);    //manda al alumno junto con su indice // ya tiene parametro solo falta el asigList
+                        if(listaDeAlumnos.get(num-1).grupos.size() < 3){  //aquí el alumno solo podra tener tres grupos con ayuda del metodo size
+                            Asignar.inscMateria(listaDeAlumnos.get(num-1), mapDeGrupos);    //manda al alumno junto con su indice // ya tiene parametro solo falta el asigList
+                        
+                        }else{
+                            System.out.println("Un alumno solo puede estar en tres grupos o menos");    //mensaje en el caso de que se ingresen mas grupos
+                        }
+
                         break;
                     }
                 case 3:

@@ -1,15 +1,13 @@
 import java.util.List;
 import java.util.ArrayList;
 
-public class Grupo {
-    String nombre;
+public class Grupo {    //eliminacion del parametro 'nombre'
     List<Alumno> inscritos = new ArrayList<>();
     Profesor encargado;
     String clave;
     Asignatura asignatura;
    
-    public Grupo(String nombre,Profesor prof,String clave,Asignatura asignatura ){
-        this.nombre = nombre;  
+    public Grupo(Profesor prof,String clave,Asignatura asignatura ){    //eliminacion del parametro 'nombre'
         this.encargado = prof;
         this.clave = clave;
         this.asignatura = asignatura;
@@ -40,7 +38,7 @@ public class Grupo {
     }
    
     public void printAll(){
-        System.out.printf("Nombre: %s. Clave: %s %n",this.nombre, this.clave);
+        System.out.printf("Clave: %s %n", this.clave);  //se elimina el uso del nombre
         System.out.print("Profesor: ");
         this.encargado.print();
         System.out.println("Alumnos inscritos");
@@ -50,7 +48,7 @@ public class Grupo {
         }
     }
     public void print(){
-        System.out.printf("Nombre: %s. Clave: %s %n",this.nombre, this.clave);
+        System.out.printf("Clave: %s %n", this.clave);
         System.out.print("Profesor: ");
         if(this.encargado!=null)
         {
@@ -59,7 +57,7 @@ public class Grupo {
     }
     
     public void printT(){
-        System.out.printf("Nombre: %s. Clave: %s %n",this.nombre, this.clave);
+        System.out.printf("Clave: %s %n", this.clave);
         System.out.print("Profesor: ");
         this.encargado.print();
         System.out.println("Alumnos inscritos");

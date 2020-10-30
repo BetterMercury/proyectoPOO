@@ -38,7 +38,7 @@ public class Eliminar{
         if(mapDeGrups.isEmpty()){
             System.out.println("No hay grupos");
         }else{
-            sc.nextLine();
+                //elimino una linea que pide datos sin usar
             Grupo eliminar;
             String clave;
             Imprimir.printGrup(mapDeGrups);   //agrego el parametro
