@@ -30,6 +30,7 @@ public class Imprimir{
             valor = mapDeGrupos.get(clave);
             System.out.print((clave)+".- ");
             valor.print();
+            System.out.println(" ");    //agregue un espaciado
         }
         
         System.out.println(" ");    //agregue un espaciado
@@ -44,6 +45,7 @@ public class Imprimir{
             valor = mapDeGrupos.get(clave);
             System.out.print((clave)+".- ");
             valor.printT();
+            System.out.println(" ");    //agregue un espaciado
         }
 
         System.out.println(" ");    //agregue un espaciado
@@ -54,6 +56,7 @@ public class Imprimir{
             Profesor p =    listaDeProfesores.get(i);
             System.out.print((i+1)+".- ");
             p.print();
+            System.out.println(" ");    //agregue un espaciado
         }
     }
 
@@ -62,14 +65,15 @@ public class Imprimir{
             Profesor p =    listaDeProfesores.get(i);
             System.out.print((i+1)+".- ");
             p.printT();
+            System.out.println(" ");    //agregue un espaciado
         }
-        System.out.println(" ");    //agregue un espaciado
     }
     static void printAsig(List<Asignatura> listaDeAsignaturas){
         for(int i = 0; i < listaDeAsignaturas.size(); i++){
             Asignatura p = listaDeAsignaturas.get(i);
             System.out.print((i+1)+".- ");
             p.print();
+            System.out.println(" ");    //agregue un espaciado
         }
     }
     static void printAsigT(List<Asignatura> listaDeAsignaturas){
@@ -77,6 +81,7 @@ public class Imprimir{
             Asignatura p = listaDeAsignaturas.get(i);
             System.out.print((i+1)+".- ");
             p.printT();
+            System.out.println(" ");    //agregue un espaciado
         }
     }
 }

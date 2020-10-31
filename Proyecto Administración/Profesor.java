@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public class Profesor {
     static int numeroProf = 0;
     String nombre;
@@ -7,6 +9,7 @@ public class Profesor {
     long numeroCuenta;
     Direccion direccion;
     String grupo;
+    HashSet<String> grupos = new HashSet<>();   //agregue un set de grupos para el profesor
 
     
     public Profesor(String nombre, String apellidoP, String apellidoM, int edad, long numeroCuenta,
@@ -22,11 +25,11 @@ public class Profesor {
     }
 
     public void addGrup(String asig){
-        this.grupo = asig;
+        grupos.add(asig);
     }
 
-    public void removeGrup(){
-        this.grupo=null;
+    public void removeGrup(String asig){
+        this.grupos.remove(asig);
     }
 
     public int buscar (){
@@ -41,6 +44,12 @@ public class Profesor {
 
     public void print(){
         System.out.printf("Nombre: %s  %s. Numero de cuenta: %d %n", this.nombre,this.apellidoP,this.numeroCuenta);
+        Grupo temp;
+        for(String iterador:this.grupos){
+            temp = Administracion.grupMap.get(iterador);
+            temp.printT();
+        }
+
     }
 
     public void printT(){
@@ -48,10 +57,10 @@ public class Profesor {
             this.numeroCuenta,this.edad);
         this.direccion.print();
         
-        if(this.grupo != null){
-            Grupo temp;
-            temp = Administracion.grupMap.get(this.grupo);
-            temp.print();
+        Grupo temp;
+        for(String iterador:this.grupos){
+            temp = Administracion.grupMap.get(iterador);
+            temp.printT();
         }
     }
 

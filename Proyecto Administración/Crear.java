@@ -76,7 +76,6 @@ public class Crear{
         estado = sc.nextLine();
         direccion = new Direccion(calle,numero,colonia,municipio,estado);
         Alumno nuevoAlumno = new Alumno(nombre, apellidoP, apellidoM, edad, numeroCuenta, direccion);
-        sc.nextLine();
         if(nuevoAlumno.buscar()!=-1)
         {	
         	System.out.println(" ");
@@ -139,7 +138,7 @@ public class Crear{
         System.out.print("Ingresa la clave de la asignatura: ");
         clave = sc.nextLine();
         Asignatura nuevaAsignatura = new Asignatura(nombre, clave, creditos);
-        sc.nextLine();
+        
         if(nuevaAsignatura.buscar()!=-1)
         {	
         	System.out.println(" ");

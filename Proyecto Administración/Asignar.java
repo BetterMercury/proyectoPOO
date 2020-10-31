@@ -33,8 +33,8 @@ public class Asignar{
             clave = sc.nextLine();
             System.out.println(" ");
             p = mapGrups.get(clave);
-            p.addProf(prof);
             prof.addGrup(clave);
+            p.addProf(prof);    //
         }
     }
 

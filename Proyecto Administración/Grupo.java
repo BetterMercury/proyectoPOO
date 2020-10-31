@@ -49,6 +49,7 @@ public class Grupo {    //eliminacion del parametro 'nombre'
     }
     public void print(){
         System.out.printf("Clave: %s %n", this.clave);
+        System.out.printf("Asignatura: %s %n", this.asignatura.nombre);
         System.out.print("Profesor: ");
         if(this.encargado!=null)
         {
@@ -60,6 +61,7 @@ public class Grupo {    //eliminacion del parametro 'nombre'
         System.out.printf("Clave: %s %n", this.clave);
         System.out.print("Profesor: ");
         this.encargado.print();
+        System.out.printf("Asignatura: %s %n", this.asignatura.nombre);
         System.out.println("Alumnos inscritos");
         for(int i=0; i<this.inscritos.size();i++){
             Alumno p = this.inscritos.get(i);

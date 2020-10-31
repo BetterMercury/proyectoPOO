@@ -39,15 +39,15 @@ public class Asignatura {
     void print(){
         System.out.println();
         System.out.println("Nombre: "+this.nombre);
-        System.out.println("crrditos: "+this.creditos);
-        System.out.println("clave "+this.clave);
+        System.out.println("Creditos: "+this.creditos);
+        System.out.println("Clave "+this.clave);
 
     }
     void printT(){
         System.out.println();
         System.out.println("Nombre: "+this.nombre);
-        System.out.println("crrditos: "+this.creditos);
-        System.out.println("clave "+this.clave);
+        System.out.println("Creditos: "+this.creditos);
+        System.out.println("Clave "+this.clave);
 
         System.out.println("Lista de grupos:");
         Grupo temp;
