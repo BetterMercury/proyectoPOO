@@ -4,7 +4,7 @@ public class Crear{
 
 	static Scanner sc = new Scanner(System.in);
 
-	static void crearProf(List<Profesor> listaDeProfesores){
+	public void crearProf(List<Profesor> listaDeProfesores){  //Método de Instancia
         String nombre,apellidoP,apellidoM;
         int edad;
         long numeroCuenta;
@@ -44,7 +44,7 @@ public class Crear{
         }
     }
 
-    static void crearAlumno(List<Alumno> listaDeAlumnos){	//agrego el parametro
+    public void crearAlumno(List<Alumno> listaDeAlumnos){	//agrego el parametro  -- Método de Instancia
         String nombre,apellidoP,apellidoM;
         int edad;
         long numeroCuenta;
@@ -85,8 +85,8 @@ public class Crear{
         }
     }
 
-    static void crearGrup(Hashtable<String,Grupo> mapaDeGrupos, List<Profesor> listaDeProfesores,
-        List<Asignatura> listaDeAsignaturas){	//dos parametros
+    public void crearGrup(Hashtable<String,Grupo> mapaDeGrupos, List<Profesor> listaDeProfesores,
+        List<Asignatura> listaDeAsignaturas){	//dos parametros -- Metodo de Instancia
         if(listaDeProfesores.isEmpty()){
             System.out.println("Antes de crear un grupo debes crear un profesor");
         }else if(listaDeAsignaturas.isEmpty()){
@@ -124,7 +124,7 @@ public class Crear{
         }
     }
 
-    static void crearAsignatura(List<Asignatura> listAsig){	//agrego el parametro
+    public void crearAsignatura(List<Asignatura> listAsig){	//agrego el parametro -- metodo de instancia
         String nombre;
         int creditos;
         String clave;

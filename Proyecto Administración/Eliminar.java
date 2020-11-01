@@ -4,7 +4,7 @@ public class Eliminar{
 
     static Scanner sc = new Scanner(System.in); //variable para ingresar datos
 
-    static void eliminarAlum(List<Alumno> listaDeAlumnos){ //agrego parametro list
+    public void eliminarAlum(List<Alumno> listaDeAlumnos){ //agrego parametro list -- metodo de instancia
         if(listaDeAlumnos.isEmpty()){
             System.out.println("No hay alumnos");
         }else{
@@ -19,7 +19,7 @@ public class Eliminar{
         }
     }
     
-    static void eliminarProf(List<Profesor> listaDeProfesores){ //agrego el parametro
+    public void eliminarProf(List<Profesor> listaDeProfesores){ //agrego el parametro -- metodo de instancia
         if(listaDeProfesores.isEmpty()){
             System.out.println("No hay profesores");
         }else{
@@ -34,7 +34,7 @@ public class Eliminar{
     }
 
 
-    static void eliminarGrup(Hashtable<String,Grupo> mapDeGrups){ //agrego el parametro
+    public void eliminarGrup(Hashtable<String,Grupo> mapDeGrups){ //agrego el parametro -- metodo de instancia
         if(mapDeGrups.isEmpty()){
             System.out.println("No hay grupos");
         }else{
@@ -49,7 +49,7 @@ public class Eliminar{
         }
     }
 
-    static void eliminarAsignatura(List<Asignatura> listAsig){ //agrego parametro list
+    public void eliminarAsignatura(List<Asignatura> listAsig){ //agrego parametro list -- metodo de instancia
         if(listAsig.isEmpty()){
             System.out.println("No hay asignaturas");
         }else{

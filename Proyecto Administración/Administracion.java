@@ -12,6 +12,7 @@ public class Administracion {
     static List<Asignatura> asigList = new ArrayList<>(); 
     
     public static void main (String[] args){
+        SubMenus sub = new SubMenus();        //se agrego la instancia
         int op; //opcion para el menu
         boolean b=true;
         System.out.println(" ");    //agregue un espaciado
@@ -28,16 +29,16 @@ public class Administracion {
             op = sc.nextInt();
             switch(op){
                 case 1:
-                    SubMenus.admiAlumnos(alumnosList,grupMap);  //le coloco la clase antes del metodo, y le paso la lista de alumnos y de asignaturas
+                    sub.admiAlumnos(alumnosList,grupMap);  //le coloco la clase antes del metodo, y le paso la lista de alumnos y de asignaturas
                     break;
                 case 2:
-                    SubMenus.admiProf(profList, grupMap); //le coloco la clase antes del metodo, y le paso la lista de profesores y de asignaturas 
+                    sub.admiProf(profList, grupMap); //le coloco la clase antes del metodo, y le paso la lista de profesores y de asignaturas 
                     break;
                 case 3:
-                    SubMenus.admiGrup(grupMap, profList,asigList); //le coloco la clase antes del metodo, y le paso la lista de asignaturas y de profesores
+                    sub.admiGrup(grupMap, profList,asigList); //le coloco la clase antes del metodo, y le paso la lista de asignaturas y de profesores
                     break;
                 case 4:
-                    SubMenus.admiAsig(grupMap,asigList);
+                    sub.admiAsig(grupMap,asigList);
                     break;
                 case 5:
                     b=false;    //se cambia la bandera para salir del ciclo
