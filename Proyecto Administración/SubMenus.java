@@ -1,10 +1,13 @@
 import java.util.*;
 
 public class SubMenus{
+    static Scanner sc = new Scanner(System.in);    
+    //Se agregaron las instancias
+    Crear crear = new Crear();
+    Eliminar eliminar = new Eliminar();
+    Asignar asignar = new Asignar();    
 
-	static Scanner sc = new Scanner(System.in);
-
-	static void admiAlumnos(List<Alumno> listaDeAlumnos, Hashtable<String,Grupo> mapDeGrupos){		//agrego los parametros de lista de alumnos y lista de asignaturas
+	public void admiAlumnos(List<Alumno> listaDeAlumnos, Hashtable<String,Grupo> mapDeGrupos){		//agrego los parametros de lista de alumnos y lista de asignaturas - método de instancia
         int op;
         boolean ban = true;
         
@@ -15,13 +18,13 @@ public class SubMenus{
             System.out.println("2) Inscribir materia a un alumno: ");
             System.out.println("3) Ver alumnos existentes: ");
             System.out.println("4) Eliminar alumno: ");
-            System.out.println("5) Salir : ");
+            System.out.println("5) Regresar al Men\u00fa Principal : ");
             System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
             op = sc.nextInt();
             System.out.println(" ");    //agregue un espaciado
             switch (op) {
                 case 1:
-                    Crear.crearAlumno(listaDeAlumnos);  //agrego el parametro
+                    crear.crearAlumno(listaDeAlumnos);  //agrego el parametro
                     break;
                 case 2:
                     if(listaDeAlumnos.isEmpty()){  //si no hay alumnos
@@ -35,7 +38,7 @@ public class SubMenus{
                         num = sc.nextInt();
                         System.out.println();   //agrego espaciado
                         if(listaDeAlumnos.get(num-1).grupos.size() < 3){  //aquí el alumno solo podra tener tres grupos con ayuda del metodo size
-                            Asignar.inscMateria(listaDeAlumnos.get(num-1), mapDeGrupos);    //manda al alumno junto con su indice // ya tiene parametro solo falta el asigList
+                            asignar.inscMateria(listaDeAlumnos.get(num-1), mapDeGrupos);    //manda al alumno junto con su indice // ya tiene parametro solo falta el asigList
                         
                         }else{
                             System.out.println("Un alumno solo puede estar en tres grupos o menos");    //mensaje en el caso de que se ingresen mas grupos
@@ -52,7 +55,7 @@ public class SubMenus{
                         break;
                     }
                 case 4:
-                    Eliminar.eliminarAlum(listaDeAlumnos); //agrego el parametro
+                    eliminar.eliminarAlum(listaDeAlumnos); //agrego el parametro
                     break;
                 case 5:
                     ban = false;
@@ -65,8 +68,8 @@ public class SubMenus{
         }while(ban);
     }
     
-    static void admiGrup(Hashtable <String,Grupo> mapGrups, List<Profesor> listaDeProfesores,
-    List<Asignatura> listaDeAsignaturas){	//agrego los parametros lista de asignaturasde y lista de profesores 
+    public void admiGrup(Hashtable <String,Grupo> mapGrups, List<Profesor> listaDeProfesores,
+    List<Asignatura> listaDeAsignaturas){	//agrego los parametros lista de asignaturasde y lista de profesores -- método de intancia
         int op;
         boolean ban = true;
         do{
@@ -75,13 +78,13 @@ public class SubMenus{
             System.out.println("1) Crear grupo: ");
             System.out.println("2) Ver grupos existentes: ");
             System.out.println("3) Eliminar grupo: ");
-            System.out.println("4) Salir : ");
+            System.out.println("4) Regresar al Men\u00fa Principal : ");
             System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
             op = sc.nextInt();
             System.out.println(" ");    //agregue un espaciado
             switch (op) {
                 case 1:
-                    Crear.crearGrup(mapGrups, listaDeProfesores,listaDeAsignaturas);    //agrego los dos parametros
+                    crear.crearGrup(mapGrups, listaDeProfesores,listaDeAsignaturas);    //agrego los dos parametros
                     break;
                 case 2:
                 	if(mapGrups.isEmpty()){
@@ -92,7 +95,7 @@ public class SubMenus{
                         break;
                     }
                 case 3:
-                	Eliminar.eliminarGrup( mapGrups ); //agrego el parametro
+                	eliminar.eliminarGrup( mapGrups ); //agrego el parametro
                     break;
                 case 4:
                     ban = false;
@@ -105,7 +108,7 @@ public class SubMenus{
         }while(ban);
     }
 
-    static void admiProf(List<Profesor> listaDeProfesores, Hashtable<String,Grupo> mapGrups){		//agrego los parametros lista de profesores y lista de asignaturas
+    public void admiProf(List<Profesor> listaDeProfesores, Hashtable<String,Grupo> mapGrups){		//agrego los parametros lista de profesores y lista de asignaturas -- método de instancia
         int op;
         boolean ban = true;
         do{
@@ -115,13 +118,13 @@ public class SubMenus{
             System.out.println("2) Asignar materia a profesor: ");
             System.out.println("3) Ver profesores existentes: ");
             System.out.println("4) Eliminar profesor: ");
-            System.out.println("5) Salir : ");
+            System.out.println("5) Regresar al Men\u00fa Principal : ");
             System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
             op = sc.nextInt();
             System.out.println(" ");    //agregue un espaciado
             switch (op) {
                 case 1:
-                    Crear.crearProf(listaDeProfesores);    //agrego el parametro
+                    crear.crearProf(listaDeProfesores);    //agrego el parametro
                     break;
                 case 2:
                     if(listaDeProfesores.isEmpty()){
@@ -134,7 +137,7 @@ public class SubMenus{
                         System.out.print("Ingresa el n\u00famero del profesor al que quieres asignar una materia: ");
                         num = sc.nextInt();
                         System.out.println(" "); //espaciado
-                        Asignar.asigMateria(listaDeProfesores.get(num-1), mapGrups);   //ya tiene el parametro, solo le coloco la clase al principio Asignar.asigMateria() y el otro parametro asigList
+                        asignar.asigMateria(listaDeProfesores.get(num-1), mapGrups);   //ya tiene el parametro, solo le coloco la clase al principio Asignar.asigMateria() y el otro parametro asigList
                         break;
                     }
                 case 3:
@@ -146,7 +149,7 @@ public class SubMenus{
                         break;
                     }
                 case 4:
-                    Eliminar.eliminarProf(listaDeProfesores); //agrego el parametro
+                    eliminar.eliminarProf(listaDeProfesores); //agrego el parametro
                     break;
                 case 5:
                     ban = false;
@@ -159,7 +162,7 @@ public class SubMenus{
         }while(ban);
     }
 
-    static void admiAsig(Hashtable<String,Grupo> mapGrus,List<Asignatura> listAsig){
+    public void admiAsig(Hashtable<String,Grupo> mapGrus,List<Asignatura> listAsig){ //método de instancia
         int op;
         boolean ban = true;
         do{
@@ -168,13 +171,13 @@ public class SubMenus{
             System.out.println("1) Crear Asignatura: ");
             System.out.println("2) Ver asignaturas existentes: ");
             System.out.println("3) Eliminar Asignatura: ");
-            System.out.println("4) Salir : ");
+            System.out.println("4) Regresar al Men\u00fa Principal: ");
             System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
             op = sc.nextInt();
             System.out.println(" ");    //agregue un espaciado
             switch (op) {
                 case 1:
-                    Crear.crearAsignatura(listAsig);   
+                    crear.crearAsignatura(listAsig);   
                     break;
                 case 2:
                 	if(listAsig.isEmpty()){
@@ -185,7 +188,7 @@ public class SubMenus{
                         break;
                     }
                 case 3:
-                    Eliminar.eliminarAsignatura(listAsig); //agrego el parametro
+                    eliminar.eliminarAsignatura(listAsig); //agrego el parametro
                     break;
                 case 4:
                     ban = false;

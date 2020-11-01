@@ -5,7 +5,7 @@ public class Asignar{
 	static Scanner sc = new Scanner(System.in);
 
 
-	 static void inscMateria(Alumno alumno, Hashtable<String,Grupo> mapDeGrupos){	//asignar materia a almuno, le agregue el parametro de la lista
+	 public void inscMateria(Alumno alumno, Hashtable<String,Grupo> mapDeGrupos){	//asignar materia a almuno, le agregue el parametro de la lista
         if(mapDeGrupos.isEmpty()){
             System.out.println("No hay asignaturas disponibles, crea una primero");
         }else{
@@ -21,7 +21,7 @@ public class Asignar{
         }
     }
 
-    static void asigMateria(Profesor prof, Hashtable<String,Grupo> mapGrups){	//asignar materia a profesor, le agregue el parametro de la lista
+    public void asigMateria(Profesor prof, Hashtable<String,Grupo> mapGrups){	//asignar materia a profesor, le agregue el parametro de la lista
         if(mapGrups.isEmpty()){
             System.out.println("No hay grupos disponibles, crea una primero");
         }else{
