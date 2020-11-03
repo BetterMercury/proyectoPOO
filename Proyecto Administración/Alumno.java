@@ -25,12 +25,12 @@ public class Alumno{
 
     //Añadir grupo al conjunto de grupos
     public void addGrup(String materia){
-        if(materia.length()<3){
+        //if(materia.length()<3){
             grupos.add(materia);
-        }else{
+        //}else{
             
-        }
-    }
+        //}
+    }     //si dejo esta instruccion, nunca se añaden los grupos al alumno
     
     //remueve un grupo del conjunto de grupos 
     public void removeGrup(String materia){

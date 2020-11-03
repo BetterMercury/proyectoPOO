@@ -42,7 +42,7 @@ public class Crear{
         {
            	System.out.println("Este profesor ya existe");
         }else{
-           	listaDeProfesores.add(nuevoProf);
+           	listaDeProfesores.add(nuevoProf);   //los profesores se van añadiendo a la coleccion de profesores pertinente
         }
     }
 
@@ -85,7 +85,7 @@ public class Crear{
         	System.out.println(" ");
             System.out.println("Este alumno ya existe (criterio de numero de cuenta)");	//solo especifico que ya existe por ser el mismo numero de cuenta
         }else{
-            listaDeAlumnos.add(nuevoAlumno);
+            listaDeAlumnos.add(nuevoAlumno);    //los alumnos se van añadiendo a la coleccion de alumnos pertinente
         }
     }
 
@@ -99,33 +99,36 @@ public class Crear{
             System.out.println("Antes de crear un grupo debes crear una asignatura");
         }else{        
             int num;    //se elimina el parametro 'nombre'
+            int num2;
             String clave;
             Profesor temp;
             Asignatura asig;
             System.out.print("Ingresa la clave del grupo: ");
             clave = sc.nextLine();
-            System.out.println("");	//agrego espaciado
+            System.out.println("");	
             //Pide profesor
-            Imprimir.printProf(listaDeProfesores);   //agrego el parametro
-            System.out.println("");	//agrego espaciado
+            Imprimir.printProf(listaDeProfesores);   
+            System.out.println("");	
             System.out.print("Ingresa el n\u00famero del profesor que se encargar\u00e1 de este grupo: ");
             num = sc.nextInt();
-            System.out.println("");	//agrego espaciado
+            System.out.println("");	
             temp = listaDeProfesores.get(num-1);
             //Pide asignatura
             Imprimir.printAsig(listaDeAsignaturas);
             System.out.println("");
-            System.out.print("Ingresa el n\u00famero de la asignatura que se impartirá en este grúpo: ");
-            num = sc.nextInt();
-            asig = listaDeAsignaturas.get(num-1);
+            System.out.print("Ingresa el n\u00famero de la asignatura que se impartira en este grupo: ");
+            num2 = sc.nextInt();
+            asig = listaDeAsignaturas.get(num2-1);
             sc.nextLine();
             if(mapaDeGrupos.contains(clave))
             {
                 System.out.println("Este grupo ya existe");
             }else{
-                Grupo nuevoGrupo = new Grupo(temp,clave,asig);  //eliminacion del parametro 'nombre'
-                mapaDeGrupos.put(clave,nuevoGrupo);
-                temp.addGrup(clave);
+                Grupo nuevoGrupo = new Grupo(temp,clave,asig);  //se crea un grupo
+                mapaDeGrupos.put(clave,nuevoGrupo); //se almacena en el mapa de grupos el grupo creado arriba
+                temp.addGrup(clave);    //en la variable profesor auxiliar, se añade la copia del grupo creado en el map
+                listaDeProfesores.set(num-1, temp); //de esta manera, el profesor previamente creado (el de la lista de profesores), tendrá asociado el grupo
+                listaDeAsignaturas.set(num2-1,asig);    //de esta manera, la asignatura previamente creada, tendrá asociada el grupo
             }
         }
     }
@@ -153,9 +156,9 @@ en la lista principal de asignaturas.
         if(nuevaAsignatura.buscar()!=-1)
         {	
         	System.out.println(" ");
-            System.out.println("Esta asignatura ya existe (criterio de clave de asignatura)");	//solo especifico que ya existe por ser el mismo numero de cuenta
+            System.out.println("Esta asignatura ya existe (criterio de clave de asignatura)");	//solo especifico que ya existe por ser la misma clave
         }else{
-            listAsig.add(nuevaAsignatura);
+            listAsig.add(nuevaAsignatura);  //a  la lista de asignaturas se le agrega la nueva
         }
     }
 }

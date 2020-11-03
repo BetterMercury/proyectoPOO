@@ -24,12 +24,12 @@ public class Profesor {
         numeroProf++;
     }
 
-    //Agrega un grupo a la lista de grupos que imparte el profesor 
+    //Agrega un grupo al conjunto de grupos que imparte el profesor 
     public void addGrup(String asig){
         grupos.add(asig);
     }
 
-    //Remueve un grupo de la lista de grupos que importe un profesor
+    //Remueve un grupo del conjunto de grupos que importe un profesor
     public void removeGrup(String asig){
         this.grupos.remove(asig);
     }
@@ -49,10 +49,7 @@ public class Profesor {
     public void print(){
         System.out.printf("Nombre: %s  %s. Numero de cuenta: %d %n", this.nombre,this.apellidoP,this.numeroCuenta);
         Grupo temp;
-        for(String iterador:this.grupos){
-            temp = Administracion.grupMap.get(iterador);
-            temp.printT();
-        }
+        
 
     }
     //Imprime toda la información del profesor 
@@ -63,7 +60,7 @@ public class Profesor {
         
         Grupo temp;
         for(String iterador:this.grupos){
-            temp = Administracion.grupMap.get(iterador);
+            temp = Administracion.grupMap.get(iterador);    
             temp.printT();
         }
     }

@@ -7,21 +7,21 @@ import java.util.Hashtable;
 public class Administracion {   
     static Scanner sc = new Scanner(System.in);
 
-    static List<Alumno> alumnosList = new ArrayList<>();
+    static List<Alumno> alumnosList = new ArrayList<>();        //uso de las colecciones lista y map para el almacenamiento y manejo de datos
     static List<Profesor> profList = new ArrayList<>();
     static Hashtable<String,Grupo> grupMap = new Hashtable<>();
     static List<Asignatura> asigList = new ArrayList<>(); 
     
     //Despliega el menú principal del programa
     public static void main (String[] args){
-        SubMenus sub = new SubMenus();        //se agrego la instancia
+        SubMenus sub = new SubMenus();        //se agrega la instancia de submenus
         int op; //opcion para el menu
-        boolean b=true;
-        System.out.println(" ");    //agregue un espaciado
-        System.out.println("Bienvenido al programa de administraci\u00f3n");    //puse correctamente el acento
-        System.out.println(" ");    //agregue un espaciado
+        boolean b=true; //variable booleana que dictaminara el cierre o la repeticion del ciclo del menu
+        System.out.println(" ");    
+        System.out.println("Bienvenido al programa de administraci\u00f3n");    
+        System.out.println(" ");    
         do{
-            System.out.println("Menu principal");   //solo puse menu principal
+            System.out.println("Menu principal");   
             System.out.println("1) Administrar alumnos: ");
             System.out.println("2) Administrar profesores: ");
             System.out.println("3) Administrar grupos:  ");
@@ -31,13 +31,13 @@ public class Administracion {
             op = sc.nextInt();
             switch(op){
                 case 1:
-                    sub.admiAlumnos(alumnosList,grupMap);  //le coloco la clase antes del metodo, y le paso la lista de alumnos y de asignaturas
+                    sub.admiAlumnos(alumnosList,grupMap);  //le paso la lista de alumnos y el mapa de grupos
                     break;
                 case 2:
-                    sub.admiProf(profList, grupMap); //le coloco la clase antes del metodo, y le paso la lista de profesores y de asignaturas 
+                    sub.admiProf(profList, grupMap); //le paso la lista de profesores y el mapa de grupos
                     break;
                 case 3:
-                    sub.admiGrup(grupMap, profList,asigList); //le coloco la clase antes del metodo, y le paso la lista de asignaturas y de profesores
+                    sub.admiGrup(grupMap, profList,asigList); //le paso el mapa de grupos, la lista de profesores y de asignaturas
                     break;
                 case 4:
                     sub.admiAsig(grupMap,asigList);
