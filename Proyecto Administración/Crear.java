@@ -1,9 +1,11 @@
 import java.util.*;
 
+//Métodos encargado de pedir información para crear objetos de diversos tipos
 public class Crear{
 
 	static Scanner sc = new Scanner(System.in);
 
+    //Pide información y crea un profesor. Verifica que aún no exista segun el número de cuenta
 	public void crearProf(List<Profesor> listaDeProfesores){  //Método de Instancia
         String nombre,apellidoP,apellidoM;
         int edad;
@@ -43,6 +45,8 @@ public class Crear{
            	listaDeProfesores.add(nuevoProf);
         }
     }
+
+    //Pide información y crea un alumno. Verifica que aún no exista segun el número de cuenta
 
     public void crearAlumno(List<Alumno> listaDeAlumnos){	//agrego el parametro  -- Método de Instancia
         String nombre,apellidoP,apellidoM;
@@ -85,6 +89,8 @@ public class Crear{
         }
     }
 
+    //Pide información y crea un grupo. Verifica que aún no exista segun la clave del grupo
+
     public void crearGrup(Hashtable<String,Grupo> mapaDeGrupos, List<Profesor> listaDeProfesores,
         List<Asignatura> listaDeAsignaturas){	//dos parametros -- Metodo de Instancia
         if(listaDeProfesores.isEmpty()){
@@ -123,6 +129,11 @@ public class Crear{
             }
         }
     }
+
+/*    
+Pide información y crea una asignatura. Valida que aún no exista buscando la clave de la asignatura
+en la lista principal de asignaturas.
+*/
 
     public void crearAsignatura(List<Asignatura> listAsig){	//agrego el parametro -- metodo de instancia
         String nombre;

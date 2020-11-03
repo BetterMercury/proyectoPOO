@@ -1,11 +1,13 @@
 import java.util.*;
 
+//Clase para asignar grupos a profesor y alumnos. Los métodos imprimen el mapa de grupos
+//para saber que grupo inscribir
 public class Asignar{
 
 	static Scanner sc = new Scanner(System.in);
 
-
-	 public void inscMateria(Alumno alumno, Hashtable<String,Grupo> mapDeGrupos){	//asignar materia a almuno, le agregue el parametro de la lista
+    //Asigna grupo a un alumno
+    public void inscMateria(Alumno alumno, Hashtable<String,Grupo> mapDeGrupos){	//asignar materia a almuno, le agregue el parametro de la lista
         if(mapDeGrupos.isEmpty()){
             System.out.println("No hay asignaturas disponibles, crea una primero");
         }else{
@@ -21,6 +23,7 @@ public class Asignar{
         }
     }
 
+    //Asigna grupo a profesor
     public void asigMateria(Profesor prof, Hashtable<String,Grupo> mapGrups){	//asignar materia a profesor, le agregue el parametro de la lista
         if(mapGrups.isEmpty()){
             System.out.println("No hay grupos disponibles, crea una primero");

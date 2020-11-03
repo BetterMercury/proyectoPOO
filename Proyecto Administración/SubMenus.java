@@ -1,5 +1,5 @@
 import java.util.*;
-
+//Clase que muestra los submenus para cada tipo de objeto 
 public class SubMenus{
     static Scanner sc = new Scanner(System.in);    
     //Se agregaron las instancias
@@ -7,6 +7,7 @@ public class SubMenus{
     Eliminar eliminar = new Eliminar();
     Asignar asignar = new Asignar();    
 
+    //Muestra el menú para los alumnos 
 	public void admiAlumnos(List<Alumno> listaDeAlumnos, Hashtable<String,Grupo> mapDeGrupos){		//agrego los parametros de lista de alumnos y lista de asignaturas - método de instancia
         int op;
         boolean ban = true;
@@ -67,7 +68,7 @@ public class SubMenus{
             }
         }while(ban);
     }
-    
+    //Muestra el menú de grupos     
     public void admiGrup(Hashtable <String,Grupo> mapGrups, List<Profesor> listaDeProfesores,
     List<Asignatura> listaDeAsignaturas){	//agrego los parametros lista de asignaturasde y lista de profesores -- método de intancia
         int op;
@@ -108,6 +109,7 @@ public class SubMenus{
         }while(ban);
     }
 
+    //Muestra el menú de profesores
     public void admiProf(List<Profesor> listaDeProfesores, Hashtable<String,Grupo> mapGrups){		//agrego los parametros lista de profesores y lista de asignaturas -- método de instancia
         int op;
         boolean ban = true;
@@ -162,6 +164,7 @@ public class SubMenus{
         }while(ban);
     }
 
+    //Muestra el menú de asignaturas
     public void admiAsig(Hashtable<String,Grupo> mapGrus,List<Asignatura> listAsig){ //método de instancia
         int op;
         boolean ban = true;

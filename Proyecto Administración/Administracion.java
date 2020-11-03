@@ -3,7 +3,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-public class Administracion {
+//Clase principal del programa
+public class Administracion {   
     static Scanner sc = new Scanner(System.in);
 
     static List<Alumno> alumnosList = new ArrayList<>();
@@ -11,6 +12,7 @@ public class Administracion {
     static Hashtable<String,Grupo> grupMap = new Hashtable<>();
     static List<Asignatura> asigList = new ArrayList<>(); 
     
+    //Despliega el menú principal del programa
     public static void main (String[] args){
         SubMenus sub = new SubMenus();        //se agrego la instancia
         int op; //opcion para el menu
