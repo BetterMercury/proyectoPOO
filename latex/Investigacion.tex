@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
+
 \graphicspath{ {./imagenes/} }
 
 \title{Proyecto \#1: Colecciones en Java\\
@@ -76,7 +77,7 @@ Framework). Un marco de colecciones es una arquitectura unificada
 para representar y manipular colecciones, lo que permite manipular 
 colecciones independientemente de los detalles de implementación. 
 
-\section{colecciones}
+\section{Colecciones}
 \par
 Una colección representa un grupo de objetos. Algunas colecciones 
 permiten elementos duplicados y otras no. Algunos están ordenados y 
@@ -518,7 +519,7 @@ Algunos de los métodos más importantes de los mapas son:
 \item put, cuya función es asociar un valor especificado con una 
 llave del mapa.
 
-
+\end{itemize}
 
 \subsection{Interfaz SortedMap}
 
@@ -556,7 +557,6 @@ el mapa.
 
 \end{itemize}
 
-\end{itemize}
 
 \subsection{Interfaz navigableMap}
 
@@ -628,5 +628,167 @@ objeto al mismo tiempo.
 
 Como esta es una implementación de la interfaz NavigableMap, sus 
 métodos son los mismo a los de esa interfaz.
+
+
+\section{Análisis del programa}
+\subsection{Administración}
+\par
+Para comenzar con el análisis del programa, se debe explicar el 
+funcionamiento y propósito de la clase Administración. Esta es la 
+clase fundamental del proyecto, pues contiene al método principal, a 
+las principales colecciones de objetos para su manejo en todas las 
+demás clases y, además, es el puente entre el usuario y el programa 
+en sí.
+\par
+Es preciso mencionar que, se declararon y utilizaron dos tipos 
+de colecciones como atributos de esta clase, estas fueron List y Map. 
+Se declararon y utilizaron las colecciones de tipo List para poder 
+almacenar ahí a las asignaturas, a los profesores y a los alumnos, 
+cada tipo de dato en su respectiva lista o arreglo dinámico si somos 
+más específicos. El otro tipo de colección que se empleó fue una 
+tabla hash (HasTable), esta se implementó para los grupos existentes 
+en el programa. 
+\par
+La tabla hash almacena los objetos de tipo grupo y a 
+estos les asigna claves al momento de almacenarlos, para poder 
+acceder a ellos por medio de dichas claves. Cualquier objeto que no 
+sea nulo se puede utilizar como clave o como valor. También es 
+importante mencionar que las estructuras descritas anteriormente se 
+definieron como estáticas, esto no solo para poder utilizar a los 
+métodos de las colecciones sin tener que instanciar objetos, sino que 
+también para para facilitar el manejo de estas colecciones en algunas 
+clases ajenas, de esta manera, no es necesario mandar como parámetros 
+a las listas y al mapa por demasiados métodos antes de llegar a su 
+destino. 
+\par
+Una vez dentro del método principal, se instanció un objeto de la 
+clase llamada SubMenus, la cual se detallará más adelante; se definió 
+un ciclo de repetición do-while con una estructura selectiva switch-
+case para preguntarle constantemente al usuario las acciones que 
+quiera hacer dentro del programa, por lo que, en esencia, la clase 
+Administración funge como un menú. En este menú, se administran a los 
+objetos Alumno, Profesores, Asignatura y Grupo por medio de los 
+métodos de la instancia SubMenus antes mencionada. Ahora es un buen 
+momento para describir a esta clase, la cual cuenta con cuatro 
+atributos importantes: un objeto static de la clase Scanner para 
+ingresar datos; un objeto de la clase Asignar; otro de la clase 
+Crear; y un último de la clase Eliminar. De esta menara se establece 
+la composición de clases, es decir, los objetos de la clase SubMenus 
+tienen como atributos instancias de otras clases para poder trabajar 
+y realizar sus operaciones. 
+
+\subsection{SubMenus}
+\par
+La clase cuenta con cuatro métodos diferentes, cada uno para 
+controlar lo que le sucede tanto a los alumnos, profesores, grupos 
+como asignaturas. Una de las razones por las cuales esta clase recibe 
+el nombre de SubMenus es porque cada método controla el flujo de 
+entrada, visibilidad, y eliminación de sus objetos correspondientes, 
+es decir, un método es el encargado de administrar a los alumnos, 
+pues por medio de él se pueden ver, crear, eliminar y asociar.
+ \par
+Para implementar este control se utilizaron ciclos de repetición do-while 
+junto con estructuras selectivas switch-case para escoger el caso 
+correspondiente. 
+\par
+Una vez dentro del caso elegido, se utilizan los métodos de los objetos
+previamente instanciados para poder acceder a sus funcionalidades;
+ esto aplica para cualquier método en cualquier caso escogido de la estructura switch-else. 
+Por ejemplo, para poder crear un alumno nuevo, nos vamos al submenú
+ de alumnos y seleccionados la opción Crear alumno, dentro del programa nos 
+encontraríamos en alguno de los casos de la estructura selectiva 
+switch, y desde aquí se utilizaría al método CrearAlumno del objeto 
+de la clase Crear para poder instanciar un objeto de la clase Alumno. 
+Todo esto se realiza en el programa pasando como parámetros las 
+listas o las colecciones correspondientes. En esencia, este es el 
+accionar de la clase SubMenus, poder brindar un control más fluido y 
+entendible al usuario.
+
+\subsection{Crear}
+\par
+La clase Crear se diseñó para que sus métodos fueran llamados por la 
+clase SubMenus y fueran capaces de crear e inicializar a los 
+diferentes objetos de los distintos tipos de dato definidos y, de 
+esta manera, ingresar estos objetos en sus respectivas colecciones. 
+Es preciso mencionar que esta clase cuenta con una gran cantidad de 
+interacciones con objetos de otras clases, pues maneja a objetos de 
+las clases Alumno, Profesor, Asignatura, Grupo y Dirección de forma 
+directa, ya que es la que crea e inicializa estos objetos. 
+
+\par
+
+En los métodos de esta clase, se le piden al usuario los datos de los 
+objetos pertinentes, por ejemplo, si estamos creando a un nuevo 
+profesor, se piden sus datos como nombre, apellido, número de cuenta, 
+entre otros; e incluso en los métodos se diseñaron algunas 
+restricciones para no ingresar alumnos con el mismo número de cuenta, 
+o no ingresar grupos con la misma clave. Esto brinda una mayor 
+organización y encapsulación en el programa.
+
+\subsection{Asignar}
+
+\par
+
+Otra de las clases definidas en este programa fue la que tiene por 
+nombre Asignar. En esta clase, se tienen dos métodos que sirven para 
+asociar tanto a alumnos como a profesores con sus respectivos grupos.
+
+\par
+
+Se pensó en crear esta clase especialmente para la asociación de 
+alumnos y profesores, puesto que nuestro pensamiento abstracto 
+percibió a esta funcionalidad como un procedimiento fundamental en 
+común para ambos tipos de dato. De esta manera, el programa queda 
+organizado por bloques que realizan la misma funcionalidad para 
+diferentes objetos. La asociación que se realiza a un alumno como a 
+un profesor se realiza de la siguiente manera: los métodos reciben el 
+mapa de grupos para poder ingresar ahí al alumno o al profesor, 
+dependiendo el caso, pero antes se verifica que ya se hayan creado 
+grupos, en caso de que no, se retorna al submenú correspondiente; en 
+caso contrario, se muestran en pantalla los diferentes grupos 
+existentes y se le pide al usuario que ingrese la clave del grupo al 
+que le quiera asignar el profesor o el alumno.
+
+\par
+
+Si todo lo anterior se lleva a cabo, se crean “copias” del grupo 
+seleccionado, almacenado en el mapa, y se guardan en las colecciones 
+propias de cada alumno y de cada profesor. De la misma manera, se 
+crean copias de los alumnos y los profesores para guardarlos en el 
+objeto grupo y en el objeto asignatura, para que todos los objetos 
+sepan que objetos tienen.
+\subsection{Imprimir}
+\par
+
+Esta clase fue de suma importancia para mostrar el contenido de las 
+modificaciones realizadas al programa, y para mostrar el ingreso de 
+datos, así como el estado de los atributos de los objetos. Por lo 
+tanto, se decidió definir a los métodos como estáticos, pues no 
+consideramos necesario instanciar objetos de esta clase para poder 
+imprimir en pantalla los estados de los objetos. Así, la impresión se 
+logra más fácilmente en diferentes lugares del programa. 
+
+\par
+
+Los métodos definidos se encargaron de mostrar los atributos de los 
+cuatro diferentes tipos de dato en dos versiones: la primera versión 
+para cada tipo de dato imprime las características recortadas o 
+básicas del objeto; mientras que la segunda versión imprime los datos 
+con mayor detalle. 
+\par
+Para lograr esto, se utilizaron instancias de las clases Alumno, 
+Profesor, Grupo y Asignatura para usar sus métodos de acceso, y así 
+lograr mostrar sus atributos; también se utilizaron a las colecciones 
+correspondientes, las cuales ingresaron como parámetro a los métodos, 
+para poder iterar sobre ellos en el caso de que se requieran 
+visualizar todos los elementos de dichas colecciones. Esto resulta 
+útil en los diferentes menús, pues es necesario imprimir en pantalla 
+la información para que el usuario sea capaz de decidir qué hacer.
+
+
+\begin{thebibliography}{0}
+\bibitem{oracle2018} Oracle. Java Platform Standard Edition \& Java Development Kit
+Version 11 API Specification, 2018
+\end{thebibliography}
 
 \end{document}
