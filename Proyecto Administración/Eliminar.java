@@ -1,9 +1,15 @@
 import java.util.*;
 
+/*
+Métodos para llamar correctamente a los métodos eliminar de cada objeto. Imprimen una lista de los
+objetos que se están tratando o avisan de que no se pueden eliminar un objeto de determinado tipo 
+porque ya no hay
+*/
 public class Eliminar{
 
     static Scanner sc = new Scanner(System.in); //variable para ingresar datos
 
+    //Elimina un alumno 
     public void eliminarAlum(List<Alumno> listaDeAlumnos){ //agrego parametro list -- metodo de instancia
         if(listaDeAlumnos.isEmpty()){
             System.out.println("No hay alumnos");
@@ -18,7 +24,7 @@ public class Eliminar{
             eliminar.eliminar();
         }
     }
-    
+    //Elimina un profesor 
     public void eliminarProf(List<Profesor> listaDeProfesores){ //agrego el parametro -- metodo de instancia
         if(listaDeProfesores.isEmpty()){
             System.out.println("No hay profesores");
@@ -33,7 +39,7 @@ public class Eliminar{
         }
     }
 
-
+    //Elimina un grupo
     public void eliminarGrup(Hashtable<String,Grupo> mapDeGrups){ //agrego el parametro -- metodo de instancia
         if(mapDeGrups.isEmpty()){
             System.out.println("No hay grupos");
@@ -49,6 +55,8 @@ public class Eliminar{
         }
     }
 
+    //Elimina una asignatura
+    
     public void eliminarAsignatura(List<Asignatura> listAsig){ //agrego parametro list -- metodo de instancia
         if(listAsig.isEmpty()){
             System.out.println("No hay asignaturas");

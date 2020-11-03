@@ -1,13 +1,14 @@
 import java.util.*;
-
+//Clase que muestra los submenus para cada tipo de objeto 
 public class SubMenus{
     static Scanner sc = new Scanner(System.in);    
-    //Se agregaron las instancias
+    //Se agregaron las instancias de las demas clases
     Crear crear = new Crear();
     Eliminar eliminar = new Eliminar();
     Asignar asignar = new Asignar();    
 
-	public void admiAlumnos(List<Alumno> listaDeAlumnos, Hashtable<String,Grupo> mapDeGrupos){		//agrego los parametros de lista de alumnos y lista de asignaturas - método de instancia
+    //Muestra el menú para los alumnos 
+	public void admiAlumnos(List<Alumno> listaDeAlumnos, Hashtable<String,Grupo> mapDeGrupos){		//agrego los parametros de lista de alumnos y el mapa de grupos - método de instancia
         int op;
         boolean ban = true;
         
@@ -19,12 +20,12 @@ public class SubMenus{
             System.out.println("3) Ver alumnos existentes: ");
             System.out.println("4) Eliminar alumno: ");
             System.out.println("5) Regresar al Men\u00fa Principal : ");
-            System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
+            System.out.print("Su opci\u00f3n es: "); 
             op = sc.nextInt();
-            System.out.println(" ");    //agregue un espaciado
+            System.out.println(" ");  
             switch (op) {
                 case 1:
-                    crear.crearAlumno(listaDeAlumnos);  //agrego el parametro
+                    crear.crearAlumno(listaDeAlumnos);  //en cada caso, se manda a llamar el método de la clase correspondiente para una acción especifica
                     break;
                 case 2:
                     if(listaDeAlumnos.isEmpty()){  //si no hay alumnos
@@ -33,12 +34,12 @@ public class SubMenus{
                     }else{
                         int num;
                         Imprimir.printAlum(listaDeAlumnos);   //agrego parametros, toda la coleccion
-                        System.out.println();   //agrego espaciado
+                        System.out.println();   
                         System.out.print("Ingresa el n\u00famero del alumno al que quieres agregar manterias: ");
                         num = sc.nextInt();
-                        System.out.println();   //agrego espaciado
-                        if(listaDeAlumnos.get(num-1).grupos.size() < 3){  //aquí el alumno solo podra tener tres grupos con ayuda del metodo size
-                            asignar.inscMateria(listaDeAlumnos.get(num-1), mapDeGrupos);    //manda al alumno junto con su indice // ya tiene parametro solo falta el asigList
+                        System.out.println();   
+                        if(listaDeAlumnos.get(num-1).grupos.size() < 3){  //(restriccion) aquí el alumno solo podra tener tres grupos con ayuda del metodo size
+                            asignar.inscMateria(listaDeAlumnos.get(num-1), mapDeGrupos);   //se manda a llamar al método que asigna un grupo al alumno
                         
                         }else{
                             System.out.println("Un alumno solo puede estar en tres grupos o menos");    //mensaje en el caso de que se ingresen mas grupos
@@ -55,7 +56,7 @@ public class SubMenus{
                         break;
                     }
                 case 4:
-                    eliminar.eliminarAlum(listaDeAlumnos); //agrego el parametro
+                    eliminar.eliminarAlum(listaDeAlumnos); 
                     break;
                 case 5:
                     ban = false;
@@ -67,9 +68,9 @@ public class SubMenus{
             }
         }while(ban);
     }
-    
+    //Muestra el menú de grupos     
     public void admiGrup(Hashtable <String,Grupo> mapGrups, List<Profesor> listaDeProfesores,
-    List<Asignatura> listaDeAsignaturas){	//agrego los parametros lista de asignaturasde y lista de profesores -- método de intancia
+    List<Asignatura> listaDeAsignaturas){	///los parametros recibidos se tratatn de las colecciones principales
         int op;
         boolean ban = true;
         do{
@@ -81,21 +82,21 @@ public class SubMenus{
             System.out.println("4) Regresar al Men\u00fa Principal : ");
             System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
             op = sc.nextInt();
-            System.out.println(" ");    //agregue un espaciado
+            System.out.println(" ");   
             switch (op) {
                 case 1:
-                    crear.crearGrup(mapGrups, listaDeProfesores,listaDeAsignaturas);    //agrego los dos parametros
+                    crear.crearGrup(mapGrups, listaDeProfesores,listaDeAsignaturas);   
                     break;
                 case 2:
                 	if(mapGrups.isEmpty()){
-                         System.out.println("No hay grupos");  //agrego un if para que se imprima esto si no hay alumnos
+                         System.out.println("No hay grupos");  //agrego un if para que se imprima esto si no hay grupos
                         break;
                     }else{
-                        Imprimir.printGrupT(mapGrups);  //se imprimiran las asignaturas. agrego parametros
+                        Imprimir.printGrupT(mapGrups);  //se imprimiran los grupos
                         break;
                     }
                 case 3:
-                	eliminar.eliminarGrup( mapGrups ); //agrego el parametro
+                	eliminar.eliminarGrup( mapGrups ); 
                     break;
                 case 4:
                     ban = false;
@@ -108,7 +109,8 @@ public class SubMenus{
         }while(ban);
     }
 
-    public void admiProf(List<Profesor> listaDeProfesores, Hashtable<String,Grupo> mapGrups){		//agrego los parametros lista de profesores y lista de asignaturas -- método de instancia
+    //Muestra el menú de profesores
+    public void admiProf(List<Profesor> listaDeProfesores, Hashtable<String,Grupo> mapGrups){		//agrego los parametros colecciones para trabajar con ellas -- método de instancia
         int op;
         boolean ban = true;
         do{
@@ -121,47 +123,48 @@ public class SubMenus{
             System.out.println("5) Regresar al Men\u00fa Principal : ");
             System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
             op = sc.nextInt();
-            System.out.println(" ");    //agregue un espaciado
+            System.out.println(" ");    
             switch (op) {
                 case 1:
-                    crear.crearProf(listaDeProfesores);    //agrego el parametro
+                    crear.crearProf(listaDeProfesores);   
                     break;
                 case 2:
                     if(listaDeProfesores.isEmpty()){
-                        System.out.println("No hay profesores, primero crea uno");
+                        System.out.println("No hay profesores, primero crea uno");  //en el caso de que no haya profesores
                         break;
                     }else{
                         int num;
-                        Imprimir.printProf(listaDeProfesores);   //agrego parametro
-                        System.out.println(" ");    //agregue un espaciado
+                        Imprimir.printProf(listaDeProfesores);  
+                        System.out.println(" ");   
                         System.out.print("Ingresa el n\u00famero del profesor al que quieres asignar una materia: ");
                         num = sc.nextInt();
-                        System.out.println(" "); //espaciado
-                        asignar.asigMateria(listaDeProfesores.get(num-1), mapGrups);   //ya tiene el parametro, solo le coloco la clase al principio Asignar.asigMateria() y el otro parametro asigList
+                        System.out.println(" "); 
+                        asignar.asigMateria(listaDeProfesores.get(num-1), mapGrups);  
                         break;
                     }
                 case 3:
                 	if(listaDeProfesores.isEmpty()){
-                         System.out.println("No hay profesores");  //agrego un if para que se imprima esto si no hay alumnos
+                         System.out.println("No hay profesores");  //agrego un if para que se imprima esto si no hay profesores
                         break;
                     }else{
-                        Imprimir.printProfT(listaDeProfesores);  //agrego parametro
+                        Imprimir.printProfT(listaDeProfesores);  
                         break;
                     }
                 case 4:
-                    eliminar.eliminarProf(listaDeProfesores); //agrego el parametro
+                    eliminar.eliminarProf(listaDeProfesores);
                     break;
                 case 5:
                     ban = false;
                     break;
             
                 default:
-                    System.out.println("Opci\u00f3n no v\u00e1lida");	//correccion del acento
+                    System.out.println("Opci\u00f3n no v\u00e1lida");
                     break;
             }
         }while(ban);
     }
 
+    //Muestra el menú de asignaturas
     public void admiAsig(Hashtable<String,Grupo> mapGrus,List<Asignatura> listAsig){ //método de instancia
         int op;
         boolean ban = true;
@@ -174,7 +177,7 @@ public class SubMenus{
             System.out.println("4) Regresar al Men\u00fa Principal: ");
             System.out.print("Su opci\u00f3n es: "); //agregue una indicacion en pantalla
             op = sc.nextInt();
-            System.out.println(" ");    //agregue un espaciado
+            System.out.println(" ");  
             switch (op) {
                 case 1:
                     crear.crearAsignatura(listAsig);   
@@ -184,18 +187,18 @@ public class SubMenus{
                          System.out.println("No hay asignaturas");  //agrego un if para que se imprima esto si no hay asignaturas
                         break;
                     }else{
-                        Imprimir.printAsig(listAsig);  //agrego parametro
+                        Imprimir.printAsig(listAsig); 
                         break;
                     }
                 case 3:
-                    eliminar.eliminarAsignatura(listAsig); //agrego el parametro
+                    eliminar.eliminarAsignatura(listAsig); 
                     break;
                 case 4:
                     ban = false;
                     break;
             
                 default:
-                    System.out.println("Opci\u00f3n no v\u00e1lida");	//correccion del acento
+                    System.out.println("Opci\u00f3n no v\u00e1lida");	
                     break;
             }
         }while(ban);
