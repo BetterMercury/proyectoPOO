@@ -7,7 +7,7 @@
 \title{Proyecto \#1: Colecciones en Java\\
 Estructura de datos y algoritmos II}
 
-\author{López,Ricardo
+\author{López, Ricardo
 \and Argüello, Dante
 \and Sánchez, Marco}
 
@@ -15,7 +15,15 @@ Estructura de datos y algoritmos II}
 
 \maketitle{}
 
-\section{Introducción}
+\section{Objetivo}
+\par
+
+Que el alumno conozca los principales aspectos teórios y práctivos de
+las colecciones y sus aplicaciones en el lenguaje de programación Java,
+así mismo que ponga en práctica los conceptos básicos de la programación
+orientada a objetos y el trabajo en equipo a distancia.
+
+\section{Marco Teórico}
 \subsection{¿Qué es una interfaz?}
 
 \par
@@ -785,10 +793,53 @@ visualizar todos los elementos de dichas colecciones. Esto resulta
 útil en los diferentes menús, pues es necesario imprimir en pantalla 
 la información para que el usuario sea capaz de decidir qué hacer.
 
+\subsection{Eliminar}
+\par
+
+La clase eliminar contiene métodos que sólo pueden ser llamados por la clase SubMenú cuando nuestro usuario desea eliminar algún Grupo, Alumno, Profesor o Asignatura en su totalidad. Todos los métodos reciben como parámetro la List o el Hash Set (sólo para los grupos) principal que se encuentra en la clase Administración, estos parámetros son colecciones de objetos del mismo tipo del que se va a eliminar. Tenemos cuatro métodos en total, y todos incluyen una verificación para saber si la List o el Hash Set recibido son vacíos, si esto es cierto se muestra al usuario un mensaje y termina la ejecución de estos métodos. 
+\par
+Pero si al menos tienen algún elemento, se manda llamar un método específico para imprimir el contenido de la colección, esto para que el usuario pueda visualizar mejor su elección a la hora de eliminar un objeto; se le pregunta al usuario el número de profesor, alumno o asignatura, o la clave del grupo a eliminar, posteriormente se solicita el método eliminar específico para el tipo de objeto elegido desde su respectiva clase, en cualquiera de los métodos nos apoyamos con un objeto temporal llamado “eliminar” para solicitar el método de eliminación de las clases.
+
+\subsection{Grupo}
+\par
+
+En el diseño de nuestro proyecto, decidimos que la clase Grupo sería una de las más importantes puesto que tiene varios objetos como atributos, una instancia de esta clase puede conocer a los alumnos que se inscribieron en ese grupo, al profesor encargado y la asignatura que se imparte. Adicionalmente incluye una clave, que es su identificador único como grupo, aprovechando las propiedades de una Hash Table, en nuestra clase principal Administración, decidimos implementar esta estructura de datos para instancias de Grupo, ya que podemos acceder a ellos por medio de su clave.
+\par
+Esta clase emplea un constructor no vacío que inicializa los atributos de encargado (Profesor), clase y asignatura; entonces, para poder instanciar un Grupo tenemos que crear un Profesor y una Asignatura forzosamente antes de, de lo contrario tendremos algunos errores que en la Clase Crear tenemos verificados, para que sólo muestren un mensaje al usuario, sin detener la ejecución.  Para poder manipular la el ArrayList de alumnos inscritos a un Grupo, tenemos un método que recibe un alumno y lo añade por medio del método *.add, de igual manera tenemos un método para eliminar alumnos inscritos con el método *.remove. Para manipular tanto el profesor como la asignatura, tenemos dos métodos para cada uno: uno hace nulo al atributo y el otro permite cambiarle el valor. Al igual que las demás clases, tenemos un método de eliminación, esta vez retira un grupo del Hash Table principal, por medio de su clave. Y dos métodos de impresión, uno resumido (clave, asignatura y profesor) y otro completo, que muestra todos los atributos de un Grupo.
+
+\subsection{Asignatura}
+\par
+
+La clase Asignatura permite instanciar una asignatura, tiene como atributos nombre, créditos, clave y también conoce al conjunto de grupos que la pueden impartir. Contiene un constructor no vacío que inicializa todos sus atributos exceptuando los grupos. Dado que una Asignatura conoce los grupos que la imparten, tiene métodos para eliminar o agregar grupos a su conjunto. Incluye un método de búsqueda que permite verificar si en la lista principal de Asignaturas de la clase Administración, ya existe una asignatura que tenga determinada clave, este método es útil para verificar que todas las asignaturas que sean creadas tengan una clave única. También incluimos un método para eliminar una Asignatura en la lista principal por medio de su clave. Para poder visualizar los atributos de una asignatura, tenemos un método que imprime de forma resumida: nombre, créditos y clave; y otro método que imprime todos sus atributos incluyendo grupos.
+
+\subsection{Alumno}
+\par
+
+La clase Alumno representa a un Alumno con atributos de identidad (nombre completo, edad, número de cuenta), contiene una Dirección, así como un Hash Set de los Grupos a los que esté inscrito (no pueden ser más de tres) y una variable estática de control para saber cuántos alumnos hemos creado a lo largo del programa. Incluye un constructor no vacío que puede inicializar todos sus atributos exceptuando a los Grupos. Dado que un Alumno puede conocer los grupos a los que está inscrito, se incluyen métodos para ingresar o retirar grupos de su Hash Set con las claves específicas. 
+\par
+Se tiene un método de búsqueda que permite realizar una verificación cuando es utilizado en la clase Crear, pues siempre de que creamos un nuevo Alumno, buscamos en la Lista principal de Alumnos de la clase Administración por algún alumno con el mismo número de cuenta, si ya existe alguno, entonces no se puede crear ese nuevo Alumno. También tenemos un método que permite eliminar Alumnos en la Lista principal de Alumnos, así como de los grupos a los cuales esté inscrito. Cuando se necesiten visualizar los atributos de un alumno, tenemos dos variantes de un método de impresión: para visualizar sólo su nombre, apellido y número de cuenta. O para visualizar todos sus atributos, incluyendo su dirección y grupos, para estos últimos se emplean los métodos de impresión presentes en las clases de Dirección y Grupo.
+
+\subsection{Profesor}
+\par
+
+La clase Profesor representa un profesor con atributos de identidad: nombre completo, edad y número de cuenta, así como un objeto de tipo Dirección y un Hash Set (conjunto) con los grupos en donde imparte clases, se optó por un conjunto ya que un grupo puede ser identificado por medio de una clave y además no se pueden repetir. Cuenta con un constructor vacío que inicializa todos sus atributos excepto el Hash Set de grupos, para estos últimos tenemos dos métodos que añaden o retiran Grupos del conjunto, por medio de los métodos *.add y *.remove respectivamente. La clase contiene un método para realizar búsqueda en la lista principal de profesores, esto por si al momento de crear un profesor con determinado número de cuenta, y el número de cuenta ya existe, no se permite al usuario duplicar esa información. Al igual que con la clase alumno, tenemos métodos que imprimen solamente losa tributos como nombre y número de cuenta, o los atributos completos de un Profesor. Incluye también un método de eliminación, para retirarlo tanto de la lista principal de Profesores como de los grupos donde impartía clase.
+
+\subsection{Dirección}
+\par
+
+La clase Dirección contiene los atributos necesarios para instanciar el domicilio de un profesor o alumno. Cuenta con los atributos de estado, municipio, colonia, número y calle. Consta únicamente de un constructor no vacío que inicia todos los atributos de un objeto de esta clase, y un método para poder imprimirlos.
+
+\section{Conclusión}
+\par
+
+Este proyecto nos ha sido de suma importancia para poner en práctica y seguir repasando los conceptos vistos en la materia de POO en cuanto a Colecciones, Utilerías, Paquetes y uso del lenguaje Java en general, en conjunto con teoría vista en EDA 2. Creemos que el objetivo de este proyecto se ha cumplido ya que pudimos implementar varias de las colecciones más importantes presentes en Java, así como sus métodos y utilerías; como equipo tuvimos un correcto desarrollo desde el primer día, con comunicación constante ya sea por mensajería instantánea o por reuniones en Google Meet. Dado que uno de los objetivos era fomentar el trabajo en equipo a distancia, y en un contexto donde la virtualización ha tenido auge aunado a un proyecto en el campo de la programación, decidimos aprender a utilizar la herramienta de control de versiones Git (por medio de GitHub), situación que nos facilitó bastante el trabajo en equipo.
+\par
+Entre las experiencias más importantes que nos llevamos de este Proyecto es que a partir de los conceptos de Programación Orientada a Objetos, así como del nivel de abstracción de cada uno de los integrantes, pueden existir infinitas formas de diseñar un programa, por lo que llegar a un consenso a la hora de definir clases, objetos, composiciones y atributos es un esfuerzo en el que todos debemos contribuir, donde es importante una eficaz comunicación entre los integrantes, para lograr un trabajo más consistente y donde todos tengan un rol en el desarrollo. En cuanto al desarrollo práctico del Proyecto, nuestra experiencia más grata fue la implementación del control de versiones, así como observar que en cada clase de teoría aprendíamos más cosas que implementábamos para hacer más robusto nuestro trabajo, y la implementación de un editor de texto nuevo (Latex). No visualizamos alguna desventaja en los contenidos de este proyecto, exceptuando que en situaciones específicas se puede volver complejo un diseño de programa orientado a objetos. Se considera que la calidad de este proyecto fue correcta para implementar lo visto en clase y laboratorio, y aprender varias cosas más.
 
 \begin{thebibliography}{0}
 \bibitem{oracle2018} Oracle. Java Platform Standard Edition \& Java Development Kit
 Version 11 API Specification, 2018
+\bibitem{lee2015} Lee, Kenn \& Hubbard, Steve. Data Structures and Algorithms with Python, 2015
 \end{thebibliography}
 
 \end{document}
