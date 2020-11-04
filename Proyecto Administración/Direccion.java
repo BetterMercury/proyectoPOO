@@ -1,3 +1,4 @@
+//Clase que define la dirección de alumnos y profesores
 
 public class Direccion {
     String calle;
@@ -6,6 +7,7 @@ public class Direccion {
     String municipio;
     String estado;
 
+    //Crea una dirección con todos aua atributos
     public Direccion (String calle, int numero, String colonia, String municipio, String estado){
         this.calle = calle;
         this.numero = numero;
@@ -14,8 +16,9 @@ public class Direccion {
         this.estado = estado;
     }
 
+    //Imprime la información de la dirección
     public void print(){
-        System.out.printf("Direccion: %ncalle: %s numero: %d colonia: %s municipio: %s estado: %s %n",this.calle,
+        System.out.printf("Direccion: %nCalle: %s. Numero: %d. Colonia: %s. Municipio: %s. Estado: %s %n",this.calle,
         this.numero,this.colonia,this.municipio,this.estado);
     }
 }
