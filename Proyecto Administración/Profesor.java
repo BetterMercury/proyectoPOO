@@ -48,9 +48,7 @@ public class Profesor {
     //Imprime una versión resumida de los datos del profesor 
     public void print(){
         System.out.printf("Nombre: %s  %s. Numero de cuenta: %d %n", this.nombre,this.apellidoP,this.numeroCuenta);
-        Grupo temp;
         
-
     }
     //Imprime toda la información del profesor 
     public void printT(){

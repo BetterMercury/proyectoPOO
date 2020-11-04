@@ -68,7 +68,7 @@ public class Alumno{
         System.out.printf("Nombre: %s %s.   Numero de cuenta: %d. Edad: %d %n", this.nombre,this.apellidoP,
         this.numeroCuenta,this.edad);
         this.direccion.print(); //imprime la direccion
-        System.out.println("Clave de asignaturas inscritas:");
+        System.out.println("Asignaturas inscritas:");
         Grupo temp;
         for(String iterador:this.grupos){
             temp = Administracion.grupMap.get(iterador);
