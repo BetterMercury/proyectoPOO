@@ -151,7 +151,7 @@ operaciones básicas (add, remove, contains and size), asumiendo que
 la función hash dispersa los elementos correctamente entre los 
 depósitos. La iteración sobre este conjunto requiere un tiempo 
 proporcional a la suma del tamaño de la instancia de HashSet (el 
-número de elementos) más la "capacidad" de la instancia de HashMap de 
+número de elementos) más la ``capacidad" de la instancia de HashMap de 
 respaldo (el número de depósitos). Por lo tanto, es muy importante no 
 establecer la capacidad inicial demasiado alta (o el factor de carga 
 demasiado bajo) si el rendimiento de la iteración es importante.
@@ -201,7 +201,7 @@ comparables.
 \par
 
 Todas las clases de implementación de conjuntos ordenados de 
-propósito general deben proporcionar cuatro constructores "estándar": 
+propósito general deben proporcionar cuatro constructores ``estándar": 
 1) Un constructor vacío (sin argumentos), que crea un conjunto 
 ordenado vacío ordenado según el orden natural de sus elementos. 2) 
 Un constructor con un solo argumento de tipo Comparator, que crea un 
@@ -251,7 +251,7 @@ Iterator y ListIterator.
 
 Cada objeto de tipo ArrayList tiene una capacidad, que es el tamaño 
 del arreglo usado para almacenar los elementos de la lista, siempre 
-de que se agregue un nuevo elemento se aumentará la capacidad 
+que se agregue un nuevo elemento se aumentará la capacidad 
 automáticamente. Es importante saber que esta implementación no está 
 sincronizada, por lo que no es seguro manipular un ArrayList con 
 varios subprocesos a la vez a menos que se sincronice de manera 
@@ -404,8 +404,8 @@ implementan a esta interfaz.
 \par
 
 La clase ArrayDeque implementa dos interfaces, la interfaz Queue y 
-Deque, nos permite implementar la estructura de datos Cola Doblemente 
-Enlazada, pero aplicado sobre un Array, no funciona como las 
+Deque, y permite implementar la estructura de datos Cola Doblemente 
+Enlazada, pero aplicado sobre un Array. No funciona como las 
 LinkedList por medio de nodos enlazados, pues aquí todos los nodos 
 son contiguos en memoria. Un ArrayDeque tiene las siguientes 
 consideraciones:
@@ -418,7 +418,7 @@ sistema donde se ejecutan.
 \item No son sincronizadas, esto significa que no son seguras para 
 ser manipuladas por varios subprocesos
 
-\item No se permite el uso de elementos Null
+\item No se permite el uso de elementos null
 
 \end{itemize}
 
@@ -496,8 +496,7 @@ exterior y para saber el comportamiento esperado del mismo.
 
 La interfaz Map define objetos que mapean claves y valores. Esta 
 interfaz ofrece tres maneras de verla: como un conjunto de claves, 
-como una colección de valores o como un conjunto de relaciones clave-
-valor.
+como una colección de valores o como un conjunto de relaciones clave-valor.
 
 \par
 
@@ -509,7 +508,7 @@ mismo.
 
 \par
 
-En general, las clases que implementan la interfaz equals deben tener 
+En general, las clases que implementan la interfaz Map deben tener 
 dos constructores, uno vacío que genera un mapa vacío u otro que 
 recibe un argumento de tipo Map que genera un mapa con las mismas 
 relaciones clave-valor.
@@ -542,8 +541,8 @@ Cualquier clase que implemente la interfaz SortedMap debe tener al
 menos cuatro constructores estándar. Dos de ellos son los que 
 solicita la interfaz Map (que es extendida por esta interfaz) y otros 
 dos son propios de esta interfaz. Uno debe recibir un solo argumento 
-de tipo comparator, que crea un mapa ordenado de acuerdo con el 
-comparador especificado vacío y otro con un argumento de tipo 
+de tipo comparator, que crea un mapa vacío ordenado de acuerdo con el 
+comparador especificado y otro con un argumento de tipo 
 SortedMap, que genera un mapa ordenado con el mismo orden, elementos 
 y comparador del mapa suministrado.
 
@@ -665,14 +664,14 @@ importante mencionar que las estructuras descritas anteriormente se
 definieron como estáticas, esto no solo para poder utilizar a los 
 métodos de las colecciones sin tener que instanciar objetos, sino que 
 también para para facilitar el manejo de estas colecciones en algunas 
-clases ajenas, de esta manera, no es necesario mandar como parámetros 
+clases ajenas. De esta manera, no es necesario mandar como parámetros 
 a las listas y al mapa por demasiados métodos antes de llegar a su 
 destino. 
 \par
 Una vez dentro del método principal, se instanció un objeto de la 
 clase llamada SubMenus, la cual se detallará más adelante; se definió 
-un ciclo de repetición do-while con una estructura selectiva switch-
-case para preguntarle constantemente al usuario las acciones que 
+un ciclo de repetición do-while con una estructura selectiva switch-case 
+para preguntarle constantemente al usuario las acciones que 
 quiera hacer dentro del programa, por lo que, en esencia, la clase 
 Administración funge como un menú. En este menú, se administran a los 
 objetos Alumno, Profesores, Asignatura y Grupo por medio de los 
@@ -726,7 +725,7 @@ directa, ya que es la que crea e inicializa estos objetos.
 \par
 
 En los métodos de esta clase, se le piden al usuario los datos de los 
-objetos pertinentes, por ejemplo, si estamos creando a un nuevo 
+objetos pertinentes. Por ejemplo, si estamos creando a un nuevo 
 profesor, se piden sus datos como nombre, apellido, número de cuenta, 
 entre otros; e incluso en los métodos se diseñaron algunas 
 restricciones para no ingresar alumnos con el mismo número de cuenta, 
@@ -803,7 +802,7 @@ Pero si al menos tienen algún elemento, se manda llamar un método específico 
 \subsection{Grupo}
 \par
 
-En el diseño de nuestro proyecto, decidimos que la clase Grupo sería una de las más importantes puesto que tiene varios objetos como atributos, una instancia de esta clase puede conocer a los alumnos que se inscribieron en ese grupo, al profesor encargado y la asignatura que se imparte. Adicionalmente incluye una clave, que es su identificador único como grupo, aprovechando las propiedades de una Hash Table, en nuestra clase principal Administración, decidimos implementar esta estructura de datos para instancias de Grupo, ya que podemos acceder a ellos por medio de su clave.
+En el diseño de nuestro proyecto, decidimos que la clase Grupo sería una de las más importantes puesto que tiene varios objetos como atributos, una instancia de esta clase puede conocer a los alumnos que se inscribieron en ese grupo, al profesor encargado y la asignatura que se imparte. Adicionalmente incluye una clave, que es su identificador único como grupo, aprovechando las propiedades de una HashTable, en nuestra clase principal Administración, decidimos implementar esta estructura de datos para instancias de Grupo, ya que podemos acceder a ellos por medio de su clave.
 \par
 Esta clase emplea un constructor no vacío que inicializa los atributos de encargado (Profesor), clase y asignatura; entonces, para poder instanciar un Grupo tenemos que crear un Profesor y una Asignatura forzosamente antes de, de lo contrario tendremos algunos errores que en la Clase Crear tenemos verificados, para que sólo muestren un mensaje al usuario, sin detener la ejecución.  Para poder manipular la el ArrayList de alumnos inscritos a un Grupo, tenemos un método que recibe un alumno y lo añade por medio del método *.add, de igual manera tenemos un método para eliminar alumnos inscritos con el método *.remove. Para manipular tanto el profesor como la asignatura, tenemos dos métodos para cada uno: uno hace nulo al atributo y el otro permite cambiarle el valor. Al igual que las demás clases, tenemos un método de eliminación, esta vez retira un grupo del Hash Table principal, por medio de su clave. Y dos métodos de impresión, uno resumido (clave, asignatura y profesor) y otro completo, que muestra todos los atributos de un Grupo.
 
@@ -817,12 +816,12 @@ La clase Asignatura permite instanciar una asignatura, tiene como atributos nomb
 
 La clase Alumno representa a un Alumno con atributos de identidad (nombre completo, edad, número de cuenta), contiene una Dirección, así como un Hash Set de los Grupos a los que esté inscrito (no pueden ser más de tres) y una variable estática de control para saber cuántos alumnos hemos creado a lo largo del programa. Incluye un constructor no vacío que puede inicializar todos sus atributos exceptuando a los Grupos. Dado que un Alumno puede conocer los grupos a los que está inscrito, se incluyen métodos para ingresar o retirar grupos de su Hash Set con las claves específicas. 
 \par
-Se tiene un método de búsqueda que permite realizar una verificación cuando es utilizado en la clase Crear, pues siempre de que creamos un nuevo Alumno, buscamos en la Lista principal de Alumnos de la clase Administración por algún alumno con el mismo número de cuenta, si ya existe alguno, entonces no se puede crear ese nuevo Alumno. También tenemos un método que permite eliminar Alumnos en la Lista principal de Alumnos, así como de los grupos a los cuales esté inscrito. Cuando se necesiten visualizar los atributos de un alumno, tenemos dos variantes de un método de impresión: para visualizar sólo su nombre, apellido y número de cuenta. O para visualizar todos sus atributos, incluyendo su dirección y grupos, para estos últimos se emplean los métodos de impresión presentes en las clases de Dirección y Grupo.
+Se tiene un método de búsqueda que permite realizar una verificación cuando es utilizado en la clase Crear, pues siempre de que creamos un nuevo Alumno, buscamos en la lista principal de Alumnos de la clase Administración por algún alumno con el mismo número de cuenta, si ya existe alguno, entonces no se puede crear ese nuevo Alumno. También tenemos un método que permite eliminar Alumnos en la Lista principal de Alumnos, así como de los grupos a los cuales esté inscrito. Cuando se necesiten visualizar los atributos de un alumno, tenemos dos variantes de un método de impresión: para visualizar sólo su nombre, apellido y número de cuenta. O para visualizar todos sus atributos, incluyendo su dirección y grupos, para estos últimos se emplean los métodos de impresión presentes en las clases de Dirección y Grupo.
 
 \subsection{Profesor}
 \par
 
-La clase Profesor representa un profesor con atributos de identidad: nombre completo, edad y número de cuenta, así como un objeto de tipo Dirección y un Hash Set (conjunto) con los grupos en donde imparte clases, se optó por un conjunto ya que un grupo puede ser identificado por medio de una clave y además no se pueden repetir. Cuenta con un constructor vacío que inicializa todos sus atributos excepto el Hash Set de grupos, para estos últimos tenemos dos métodos que añaden o retiran Grupos del conjunto, por medio de los métodos *.add y *.remove respectivamente. La clase contiene un método para realizar búsqueda en la lista principal de profesores, esto por si al momento de crear un profesor con determinado número de cuenta, y el número de cuenta ya existe, no se permite al usuario duplicar esa información. Al igual que con la clase alumno, tenemos métodos que imprimen solamente losa tributos como nombre y número de cuenta, o los atributos completos de un Profesor. Incluye también un método de eliminación, para retirarlo tanto de la lista principal de Profesores como de los grupos donde impartía clase.
+La clase Profesor representa un profesor con atributos de identidad: nombre completo, edad y número de cuenta, así como un objeto de tipo Dirección y un HashSet (conjunto) con los grupos en donde imparte clases, se optó por un conjunto ya que un grupo puede ser identificado por medio de una clave y además no se pueden repetir. Cuenta con un constructor vacío que inicializa todos sus atributos excepto el HashSet de grupos, para estos últimos tenemos dos métodos que añaden o retiran Grupos del conjunto, por medio de los métodos *.add y *.remove respectivamente. La clase contiene un método para realizar búsqueda en la lista principal de profesores, esto por si al momento de crear un profesor con determinado número de cuenta, y el número de cuenta ya existe, no se permite al usuario duplicar esa información. Al igual que con la clase alumno, tenemos métodos que imprimen solamente losa tributos como nombre y número de cuenta, o los atributos completos de un Profesor. Incluye también un método de eliminación, para retirarlo tanto de la lista principal de Profesores como de los grupos donde impartía clase.
 
 \subsection{Dirección}
 \par
@@ -894,7 +893,7 @@ investigar cómo hacerlo.
 \par
 
 El uso de conjuntos fue totalmente nuevo en este proyecto también. 
-Por la simplicidad de los conjuntos, fue difícil encontrar un lugar 
+Por la aparente simplicidad de los conjuntos, fue difícil encontrar un lugar 
 para ellos; pero si no hubiera sido por el proyecto, no sabríamos de 
 su existencia y de lo relacionados que están con los mapas.
 
