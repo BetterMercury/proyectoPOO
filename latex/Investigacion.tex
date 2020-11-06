@@ -18,7 +18,7 @@ Estructura de datos y algoritmos II}
 \section{Objetivo}
 \par
 
-Que el alumno conozca los principales aspectos teórios y práctivos de
+Que el alumno conozca los principales aspectos teórios y prácticos de
 las colecciones y sus aplicaciones en el lenguaje de programación Java,
 así mismo que ponga en práctica los conceptos básicos de la programación
 orientada a objetos y el trabajo en equipo a distancia.
@@ -27,20 +27,20 @@ orientada a objetos y el trabajo en equipo a distancia.
 \subsection{¿Qué es una interfaz?}
 
 \par
-Una interface es una lista de métodos ( solamente cabeceras de 
+Una interfaz es una lista de métodos ( solamente cabeceras de 
 métodos, sin implementación) que define un comportamiento específico 
 para un conjunto de objetos. Cualquier clase que declare que 
-implementa una determinada interface, debe comprometerse a 
+implementa una determinada interfaz, debe comprometerse a 
 implementar todos y cada uno de los métodos que ese interfaz define. 
 Esa clase, además, pasará a pertenecer a un nuevo tipo de dato extra 
-que es el tipo de la interface que implementa. Los interfaces actúan, 
+que es el tipo de la interfaz que implementa. Los interfaces actúan, 
 por tanto, como tipos de clases. Se pueden declarar variables que 
-pertenezcan al tipo de la interface, se pueden declarar métodos cuyos 
-argumentos sean del tipo de la interface, asimismo se pueden declarar 
-métodos cuyo retorno sea el tipo de una interface.
+pertenezcan al tipo de la interfaz, se pueden declarar métodos cuyos 
+argumentos sean del tipo de la interfaz, asimismo se pueden declarar 
+métodos cuyo retorno sea el tipo de una interfaz.
 
 \par
-Una interface es un conjunto de constantes y de métodos abstractos.
+Una interfaz es un conjunto de constantes y de métodos abstractos.
 
 \subsubsection{Clases}
 
@@ -111,7 +111,7 @@ puede tener sus elementos iterados.
 La interfaz raíz en la jerarquía de colecciones.Todas las clases de 
 implementación de Collection de propósito general (que normalmente 
 implementan Collection indirectamente a través de una de sus 
-subinterfaces) deben proporcionar dos constructores ``estándar'': un 
+subinterfaces) deben proporcionar dos constructores "estándar'': un 
 constructor vacío (sin argumentos), que crea una colección vacía, y 
 un constructor con un solo argumento de tipo Colección, que crea una 
 nueva colección con los mismos elementos que su argumento. 
@@ -229,7 +229,7 @@ interfaz Collection.
 
 \par
 
-Esta interfaz proporciona uso un iterador especial llamada 
+Esta interfaz proporciona el uso de un iterador especial llamado 
 ListIterator que extiende a la interfaz Iterator. La interfaz List 
 incluye métodos para acceder posicionalmente a los elementos (por 
 medio del índice), para realizar búsqueda secuencial, y hacer u 
@@ -333,7 +333,7 @@ Es una colección diseñada para almacenar elementos antes de ser
 procesados. Esta estructura generalmente pero no necesariamente 
 ordena los elementos de manera FIFO (first-in-first-out). Una 
 excepción de esta esto son las colas LIFO o stacks. La mayor parte de 
-las implementaciones no tienen un limite de elementos, pero algunas 
+las implementaciones no tienen un límite de elementos, pero algunas 
 otras sí.
 
 \par
@@ -373,7 +373,7 @@ Esta es una implementación de una cola de prioridad basada en un heap
 de prioridad. En esta estructura, los elementos están ordenados de 
 acuerdo con su orden natural o por un comparador provisto durante la 
 creación de la estructura.  Esta estructura no permite la inserción 
-de elementos no comparables si se esta ordenando a los elementos de 
+de elementos no comparables si se está ordenando a los elementos de 
 acuerdo con su orden natural.
 
 \par
@@ -404,7 +404,7 @@ implementan a esta interfaz.
 \par
 
 La clase ArrayDeque implementa dos interfaces, la interfaz Queue y 
-Deque y permite implementar la estructura de datos Cola Doblemente 
+Deque, nos permite implementar la estructura de datos Cola Doblemente 
 Enlazada, pero aplicado sobre un Array, no funciona como las 
 LinkedList por medio de nodos enlazados, pues aquí todos los nodos 
 son contiguos en memoria. Un ArrayDeque tiene las siguientes 
@@ -829,12 +829,48 @@ La clase Profesor representa un profesor con atributos de identidad: nombre comp
 
 La clase Dirección contiene los atributos necesarios para instanciar el domicilio de un profesor o alumno. Cuenta con los atributos de estado, municipio, colonia, número y calle. Consta únicamente de un constructor no vacío que inicia todos los atributos de un objeto de esta clase, y un método para poder imprimirlos.
 \section{Conclusiones individuales}
+\subsection{Argüello, Dante}
+
+\par
+
+La cantidad de elementos teóricos y prácticos involucrados
+en el desarrollo de este proyecto complementan una experiencia
+bastante satisfactoria para el aprendizaje que logré con este
+Proyecto. Fué agradable trabajar con mis
+compañeros de manera virtual, pues nos apoyamos de herramientas
+que facilitaron nuestra causa, como crear un repositorio en 
+GitHub, las reuniones por videollamada y los sistemas de almacenamiento
+en la nube, no dudo que estas herramientas son útiles ya en campo
+laboral cuando se debe desarrollar un proyecto con developers
+de distintas partes del mundo. 
+
+\par
+
+Durante el desarrollo nos surgieron bastantes retos lógicos, y en mi caso
+algunos retos teóricos, y entre todos estuvimos dispuestos a ayudarnos
+con lo que no entendíamos. Siento que el desarrollo de nuestro Proyecto
+fue a la par del avance en teoría vista en clase, se logró la implementación
+correcta de las Colecciones gracias al aporte de todos, pues al ser
+estructuras de datos nuevas ( o al menos en mi caso ), la investigación de 
+cada uno de los integrantes fue puliendo la forma en cómo implementábamos
+los conjuntos principalmente, las listas y los mapas.
+
+\par
+
+De manera personal, siento que no tuve grandes aportaciones prácticas
+durante el desarrollo del proyecto a diferencia de mis compañeros, pero todos
+estuvimos dispuestos a trabajar con alguna parte del proyecto y tratamos 
+de equilibrar las cargas de trabajo. Siento que cumplí con el objetivo ya que aprendí 
+a implementar algunas de las colecciones más importantes, y me agradó nuestro
+sistema de trabajo. Adicionalmente se fomentó la investigación, y la búsqueda
+de herramientas prácticas.
+
 \subsection{López, Ricardo}
 
 \par
 
 Este proyecto fue muy importante para la comprensión de colecciones y 
-sobre todo para el trabajo en equipo. La parte en donde más aprendí 
+sobre todo, para el trabajo en equipo. La parte en donde más aprendí 
 sobre las colecciones fue cuando estaba investigando sobre ellas y 
 donde colocarlas. Aunque en este programa decidimos usar algunas de 
 las versiones más simples de cada tipo de colección, durante la 
@@ -860,7 +896,7 @@ investigar cómo hacerlo.
 El uso de conjuntos fue totalmente nuevo en este proyecto también. 
 Por la simplicidad de los conjuntos, fue difícil encontrar un lugar 
 para ellos; pero si no hubiera sido por el proyecto, no sabríamos de 
-si existencia y de lo relacionados que están con los mapas.
+su existencia y de lo relacionados que están con los mapas.
 
 \par
 
@@ -870,14 +906,19 @@ los integrantes y que iba a llevar a muchos mal entendidos. La
 realidad fue que nos pudimos comunicar bien, repartir el trabajo 
 entre todos y sobre todo complementarnos los unos a los otros. 
 
+\subsection{Sánchez, Marco}
+
+\par
+
+Después de haber terminado el proyecto uno de la asignatura de programación orientada a objetos, puedo concluir que se logró cumplir el objetivo trazado al comienzo de manera satisfactoria. Esto es debido a que, tanto el equipo en conjunto como cada integrante en forma particular, conseguimos conocer, comprender e implementar, en un programa funcional, los principales aspectos teóricos y prácticos de las colecciones; así como sus variantes y aplicaciones en el lenguaje de programación Java. Esto resultó muy importante, ya que las colecciones son poderosas herramientas para trabajar con datos, objetos y estructuras dentro de los programas, y así poder resolver los problemas propuestos en ellos. Así mismo, se lograron aplicar y poner en práctica los conceptos básicos revisados en clase, que tienen que ver con la programación orientada a objetos, para apropiarnos satisfactoriamente de los conocimientos adquiridos en esta primera parte del curso. Por último, pero sin dejar de lado su importancia, debo mencionar que se fomentó y desarrolló el trabajo en equipo a distancia, pues el proyecto se llevó a cabo con una gran coordinación y cooperación por parte de los integrantes. Los principales conflictos y las diferentes opiniones de cada integrante se discutieron y se solucionaron, lo cual benefició el avance del proyecto y la apropiación de conocimiento significativo. Esta actividad me pareció un poco sofocante por la carga de trabajo, pero fue muy enriquecedora en cuanto a los contenidos y al aprendizaje obtenido.
 
 
-\section{Conclusión}
+\section{Conclusión General}
 \par
 
 Este proyecto nos ha sido de suma importancia para poner en práctica y seguir repasando los conceptos vistos en la materia de POO en cuanto a Colecciones, Utilerías, Paquetes y uso del lenguaje Java en general, en conjunto con teoría vista en EDA 2. Creemos que el objetivo de este proyecto se ha cumplido ya que pudimos implementar varias de las colecciones más importantes presentes en Java, así como sus métodos y utilerías; como equipo tuvimos un correcto desarrollo desde el primer día, con comunicación constante ya sea por mensajería instantánea o por reuniones en Google Meet. Dado que uno de los objetivos era fomentar el trabajo en equipo a distancia, y en un contexto donde la virtualización ha tenido auge aunado a un proyecto en el campo de la programación, decidimos aprender a utilizar la herramienta de control de versiones Git (por medio de GitHub), situación que nos facilitó bastante el trabajo en equipo.
 \par
-Entre las experiencias más importantes que nos llevamos de este Proyecto es que a partir de los conceptos de Programación Orientada a Objetos, así como del nivel de abstracción de cada uno de los integrantes, pueden existir infinitas formas de diseñar un programa, por lo que llegar a un consenso a la hora de definir clases, objetos, composiciones y atributos es un esfuerzo en el que todos debemos contribuir, donde es importante una eficaz comunicación entre los integrantes, para lograr un trabajo más consistente y donde todos tengan un rol en el desarrollo. En cuanto al desarrollo práctico del Proyecto, nuestra experiencia más grata fue la implementación del control de versiones, así como observar que en cada clase de teoría aprendíamos más cosas que implementábamos para hacer más robusto nuestro trabajo, y la implementación de un editor de texto nuevo (Latex). No visualizamos alguna desventaja en los contenidos de este proyecto, exceptuando que en situaciones específicas se puede volver complejo un diseño de programa orientado a objetos. Se considera que la calidad de este proyecto fue correcta para implementar lo visto en clase y laboratorio, y aprender varias cosas más.
+Entre las experiencias más importantes que nos llevamos de este Proyecto es que a partir de los conceptos de Programación Orientada a Objetos, así como del nivel de abstracción de cada uno de los integrantes, pueden existir infinitas formas de diseñar un programa, por lo que llegar a un consenso a la hora de definir clases, objetos, composiciones y atributos es un esfuerzo en el que todos debemos contribuir, donde es importante una eficaz comunicación entre los integrantes, para lograr un trabajo más consistente y donde todos tengan un rol en el desarrollo. En cuanto al desarrollo práctico del Proyecto, nuestra experiencia más grata fue la implementación del control de versiones, así como observar que en cada clase de teoría aprendíamos más cosas que implementábamos para hacer más robusto nuestro trabajo, y la implementación de un editor de texto nuevo (Latex). De igual manera, el reto de establecer algunas de las Colecciones como HashTable y HashMap nos hizo comprender cabalmente su funcionamiento para poder aportar ideas de implementación. No visualizamos alguna desventaja en los contenidos de este proyecto, exceptuando que en situaciones específicas se puede volver complejo un diseño de programa orientado a objetos. Se considera que la calidad de este proyecto fue correcta para implementar lo visto en clase y laboratorio y mantener un aprendizaje continuo.
 
 \begin{thebibliography}{0}
 \bibitem{oracle2018} Oracle. Java Platform Standard Edition \& Java Development Kit
